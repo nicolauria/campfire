@@ -10,6 +10,12 @@ class SessionForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
+    this.guestLoginHelper = this.guestLoginHelper.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -43,6 +49,39 @@ class SessionForm extends React.Component {
 
   }
 
+  guestLogin(e) {
+    e.preventDefault();
+    const guestUsername = 'Will'.split('');
+    const guestPassword = 'secret'.split('');
+    this.setState({username: '', password: ''}, () =>
+      this.guestLoginHelper(guestUsername, guestPassword)
+    );
+  }
+
+  guestLoginHelper(guestUsername, guestPassword) {
+    let button = document.getElementById('session-submit');
+    if (guestUsername.length > 0) {
+
+      this.setState(
+        { username: this.state.username + guestUsername.shift() }, () => {
+          window.setTimeout( () =>
+            this.guestLoginHelper(guestUsername, guestPassword), 100);
+        }
+      );
+    } else if (guestPassword.length > 0) {
+
+      this.setState(
+        { password: this.state.password + guestPassword.shift() }, () => {
+          window.setTimeout( () =>
+            this.guestLoginHelper(guestUsername, guestPassword), 100);
+        }
+      );
+    } else {
+
+      button.click();
+    }
+  }
+
   render() {
     let email;
     if (this.props.formType === 'Sign Up') {
@@ -65,13 +104,25 @@ class SessionForm extends React.Component {
       loginForm = "login-form-no-errors"
     }
 
+    let otherLoginOption;
+    if (this.props.formType === 'Create a New Account') {
+      otherLoginOption = "Already have an account?"
+    } else {
+      otherLoginOption = "Need an account?"
+    }
+
+    let loginAsGuest = null;
+    if (this.props.formType === 'Login') {
+      loginAsGuest = <button onClick={this.guestLogin} className="session-submit">Login in As Guest</button>;
+    }
+
     return (
       <div className="form-errors-container">
         {this.renderErrors()}
         <div className={loginForm}>
         <h1 className="login-form-h1">{this.props.formType}</h1>
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            Please {this.props.formType} or {this.props.navLink}
+            Enter your email address and password:
             <div className="login-form">
               <br/>
               <label>
@@ -93,7 +144,9 @@ class SessionForm extends React.Component {
               </label>
               {email}
               <br/>
-              <button className="session-submit" type="submit">Submit</button>
+              <button id="session-submit" className="session-submit" type="submit">{this.props.formType}</button>
+              {loginAsGuest}
+              {otherLoginOption} {this.props.navLink}
             </div>
           </form>
         </div>

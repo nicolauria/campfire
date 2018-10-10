@@ -11,15 +11,17 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <header>
-      <div>
-        <img className="patter-logo" src="https://cdn1.imggmi.com/uploads/2018/10/10/4f547f9d76abde9dfe2c2681c69f03e3-full.png"/>
-        <Link to="/" className="header-link">
-          <h1>Patter</h1>
-        </Link>
-      </div>
-      <div class="greeting-container">
-        <GreetingContainer />
-      </div>
+
+        <div>
+          <img className="patter-logo" src="https://cdn1.imggmi.com/uploads/2018/10/10/4f547f9d76abde9dfe2c2681c69f03e3-full.png"/>
+          <Link to="/" className="header-link">
+            <h1>Patter</h1>
+          </Link>
+        </div>
+        <div className="greeting-container">
+          <GreetingContainer />
+        </div>
+
     </header>
     <div id="main-content">
       <Switch>

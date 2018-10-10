@@ -1,10 +1,15 @@
 header {
   width: 100%;
+  margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
   display: flex;
   justify-content: space-between;
   vertical-align: center;
+
+  .header-container {
+    max-width: 1100px;
+  }
 
   h1 {
     display: inline-block;
@@ -28,6 +33,17 @@ header {
       margin-right: 35px;
     }
 
+    .login-signup a,
+    .header-button {
+      color: #717274;
+      border: 2px solid #717274;
+      padding: 6px 14px 9px 14px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-right: 25px;
+      cursor: pointer;
+    }
+
     .header-group {
       /* float: right; */
       margin-right: 50px;
@@ -35,14 +51,6 @@ header {
       h2 {
         display: inline-block;
         margin-right: 25px;
-      }
-
-      .header-button {
-        background: #008952;
-        font-size: 16px;
-        width: 75px;
-        height: 35px;
-        color: #fff;
       }
     }
   }
