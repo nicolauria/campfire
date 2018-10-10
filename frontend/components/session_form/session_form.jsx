@@ -111,10 +111,15 @@ class SessionForm extends React.Component {
       otherLoginOption = "Need an account?"
     }
 
+    let formInstructions = "Enter a username, password and email:"
     let loginAsGuest = null;
     if (this.props.formType === 'Login') {
       loginAsGuest = <button onClick={this.guestLogin} className="session-submit">Login in As Guest</button>;
+      formInstructions = "Enter your username and password:"
     }
+
+
+    if (this.props.formType)
 
     return (
       <div className="form-errors-container">
@@ -122,7 +127,7 @@ class SessionForm extends React.Component {
         <div className={loginForm}>
         <h1 className="login-form-h1">{this.props.formType}</h1>
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            Enter your email address and password:
+            {formInstructions}
             <div className="login-form">
               <br/>
               <label>

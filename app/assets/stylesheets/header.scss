@@ -3,12 +3,13 @@ header {
   margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
-  display: flex;
-  justify-content: space-between;
-  vertical-align: center;
 
   .header-container {
+    margin: 0 auto;
     max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
   }
 
   h1 {
@@ -27,7 +28,7 @@ header {
     display: flex;
     vertical-align: center;
 
-    .login-signup {
+    .login-signup, {
       /* float: right; */
       margin-top: 18px;
       margin-right: 35px;
@@ -47,10 +48,14 @@ header {
     .header-group {
       /* float: right; */
       margin-right: 50px;
-
+      margin-top: 12px;
       h2 {
         display: inline-block;
         margin-right: 25px;
+      }
+
+      .header-button {
+        font-size: 16px;
       }
     }
   }
