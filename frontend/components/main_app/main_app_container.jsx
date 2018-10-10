@@ -8,7 +8,8 @@ const mapStateToProps = ({ session, entities: { users } }) => ({
 class MainApp extends React.Component {
   render() {
     return (
-      <div className="welcome=box">
+      <div className="main">
+        <ChannelSidebarContainer />
         <h1>Welcome {this.props.currentUser.username}!</h1>
       </div>
     )
