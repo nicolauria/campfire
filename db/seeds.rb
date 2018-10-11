@@ -7,5 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Channel.destroy_all
+Subscription.destroy_all
 
-User.create(usename: 'Will', email: 'will@aol.com', password: 'secret')
+user1 = User.create(username: 'Will', email: 'will@aol.com', password: 'secret')
+
+channel1 = Channel.create(name: 'channel1', private: false, description: 'this is channel 1',
+  direct_message: false)
+
+channel2 = Channel.create(name: 'channel2', private: false, description: 'this is channel 2',
+  direct_message: true)
+
+Subscription.create(user_id: user1.id, channel_id: channel1.id)
+Subscription.create(user_id: user1.id, channel_id: channel2.id)
