@@ -57,6 +57,11 @@ input[type=text], input[type=email], input[type=password] {
   border-radius: 5px;
 }
 
+.session-submit:hover,
+#session-submit:hover {
+  background: #34a075;
+}
+
 .form-errors {
   width: 550px;
   height: auto;
@@ -73,4 +78,8 @@ input[type=text], input[type=email], input[type=password] {
 .form-errors ul {
   list-style-type: none;
   padding-left: 0px;
+}
+
+.other-option-link a:visited {
+  color: blue;
 }

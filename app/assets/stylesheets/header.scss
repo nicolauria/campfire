@@ -45,6 +45,12 @@ header {
       cursor: pointer;
     }
 
+    .login-signup a:hover,
+    .header-button:hover {
+      color: #888;
+      border: 2px solid #888;
+    }
+
     .header-group {
       /* float: right; */
       margin-right: 50px;

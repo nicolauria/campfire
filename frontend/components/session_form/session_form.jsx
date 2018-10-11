@@ -151,7 +151,7 @@ class SessionForm extends React.Component {
               <br/>
               <button id="session-submit" className="session-submit" type="submit">{this.props.formType}</button>
               {loginAsGuest}
-              {otherLoginOption} {this.props.navLink}
+              {otherLoginOption} <span className="other-option-link">{this.props.navLink}</span>
             </div>
           </form>
         </div>

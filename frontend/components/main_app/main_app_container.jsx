@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ChannelSidebarContainer from './channel_sidebar_container';
+import ChannelSidebarContainer from '../channel_sidebar/channel_sidebar_container';
 
 const mapStateToProps = ({ session, entities: { users } }) => ({
   currentUser: users[session.id]

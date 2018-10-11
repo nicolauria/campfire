@@ -14,8 +14,8 @@ const App = () => (
     <header>
       <div className="header-container">
         <div>
-          <img className="patter-logo" src="https://cdn1.imggmi.com/uploads/2018/10/10/4f547f9d76abde9dfe2c2681c69f03e3-full.png"/>
           <Link to="/" className="header-link">
+            <img className="patter-logo" src="https://cdn1.imggmi.com/uploads/2018/10/10/4f547f9d76abde9dfe2c2681c69f03e3-full.png"/>
             <h1>Patter</h1>
           </Link>
         </div>
