@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :subscriptions
+  has_many :channels, through: :subscriptions
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

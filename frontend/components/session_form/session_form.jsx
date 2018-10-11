@@ -105,7 +105,7 @@ class SessionForm extends React.Component {
     }
 
     let otherLoginOption;
-    if (this.props.formType === 'Create a New Account') {
+    if (this.props.formType === 'Sign Up') {
       otherLoginOption = "Already have an account?"
     } else {
       otherLoginOption = "Need an account?"

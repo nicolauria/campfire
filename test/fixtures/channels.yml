@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  private: false
+  description: MyText
+  direct_message: false
+
+two:
+  name: MyString
+  private: false
+  description: MyText
+  direct_message: false

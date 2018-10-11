@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ChannelSidebarContainer from './channel_sidebar_container';
 
 const mapStateToProps = ({ session, entities: { users } }) => ({
   currentUser: users[session.id]
@@ -10,7 +11,6 @@ class MainApp extends React.Component {
     return (
       <div className="main">
         <ChannelSidebarContainer />
-        <h1>Welcome {this.props.currentUser.username}!</h1>
       </div>
     )
   }
