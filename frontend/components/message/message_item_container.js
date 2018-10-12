@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import MessageItem from './message_item';
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = ({entities: { users }}) => ({
+  users: users
 });
 
 const mapDispatchToProps = dispatch => ({
