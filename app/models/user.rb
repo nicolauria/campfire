@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :subscriptions
   has_many :channels, through: :subscriptions
+  has_many :messages
 
   attr_reader :password
 

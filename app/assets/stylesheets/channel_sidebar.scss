@@ -1,0 +1,60 @@
+.channel-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  position: fixed;
+  background: #4d394b;
+  color: #fff;
+  height: 100%;
+  font-size: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.channel-sidebar ul {
+  list-style-type: none;
+  margin-top: 5px;
+  color: rgb(202,196,201);
+}
+
+.channel-sidebar ul a,
+.channel-sidebar ul a:visited,
+.channel-sidebar ul a:active {
+  text-decoration: none;
+  color: rgb(202,196,201);
+  -webkit-font-smoothing: antialiased;
+}
+
+.sidebar-log-out {
+  width: 75px;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+
+.sidebar-log-out:active {
+  border: none;
+}
+
+.channel-sidebar h2 {
+  font-size: 18px;
+  margin-left: 20px;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+.logged-in-username {
+  font-size: 25px;
+  margin-left: 20px;
+  margin-bottom: 0px;
+  -webkit-font-smoothing: auto;
+}
+
+.channel-list-item {
+  cursor: pointer;
+}

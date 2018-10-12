@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ChannelSidebarContainer from '../channel_sidebar/channel_sidebar_container';
+import CurrentChannel from '../channel/current_channel_container';
+import { Route } from 'react-router-dom';
 
 const mapStateToProps = ({ session, entities: { users } }) => ({
   currentUser: users[session.id]
@@ -11,6 +13,7 @@ class MainApp extends React.Component {
     return (
       <div className="main">
         <ChannelSidebarContainer />
+        <Route path="/channels/:channelId" component={CurrentChannel}/>
       </div>
     )
   }

@@ -9,6 +9,7 @@ class ChannelSidebar extends React.Component {
   }
 
   render() {
+    if (!this.props.currentUser) return null;
 
     const channels = Object.values(this.props.channels).filter(channel => {
       channel.direct_message === false;
@@ -17,8 +18,9 @@ class ChannelSidebar extends React.Component {
     console.log(channels);
 
     return(
-      <div>
-        <h1>Welcome {this.props.currentUser.username}!</h1>
+      <div className="channel-sidebar">
+        <h1 className="logged-in-username">{this.props.currentUser.username}</h1>
+        <button className="sidebar-log-out" onClick={this.props.logOut}>Log Out</button>
         <h2>Channels</h2>
         <ChannelList />
         <h2>Direct Messages</h2>

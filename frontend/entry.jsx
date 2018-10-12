@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import { requestChannels } from './actions/channel_actions';
+import { requestChannelMessages } from './actions/message_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.requestChannels = requestChannels;
+  window.requestChannelMessages = requestChannelMessages;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);

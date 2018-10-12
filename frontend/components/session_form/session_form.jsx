@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import GreetingContainer from '../greeting/greeting_container';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -122,7 +124,24 @@ class SessionForm extends React.Component {
     if (this.props.formType)
 
     return (
-      <div className="form-errors-container">
+
+      <div>
+        <header>
+          <div className="header-container">
+            <div>
+              <Link to="/" className="header-link">
+                <img className="patter-logo" src="https://cdn1.imggmi.com/uploads/2018/10/10/4f547f9d76abde9dfe2c2681c69f03e3-full.png"/>
+                <h1>Patter</h1>
+              </Link>
+            </div>
+            <div className="greeting-container">
+              <GreetingContainer />
+            </div>
+          </div>
+        </header>
+
+        <div className="session-form-container">
+
         {this.renderErrors()}
         <div className={loginForm}>
         <h1 className="login-form-h1">{this.props.formType}</h1>
@@ -154,6 +173,7 @@ class SessionForm extends React.Component {
               {otherLoginOption} <span className="other-option-link">{this.props.navLink}</span>
             </div>
           </form>
+        </div>
         </div>
       </div>
     );

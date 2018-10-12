@@ -20,3 +20,5 @@ channel2 = Channel.create(name: 'channel2', private: false, description: 'this i
 
 Subscription.create(user_id: user1.id, channel_id: channel1.id)
 Subscription.create(user_id: user1.id, channel_id: channel2.id)
+
+Message.create(body: 'this is message 1', user_id: user1.id, channel_id: channel1.id)
