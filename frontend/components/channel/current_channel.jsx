@@ -1,10 +1,13 @@
 import React from 'react';
 import MessageItem from '../message/message_item_container';
+import { createChannelSubscription } from '../../actions/channel_actions';
+import ChannelForm from './channel_form_container';
 
 class CurrentChannel extends React.Component {
   componentDidMount() {
     if (this.props.match) {
-      this.props.requestChannelMessages(this.props.match.params.channelId)
+      this.props.requestChannelMessages(this.props.match.params.channelId);
+      this.props.createChannelSubscription(this.props.channel.id, this.props.receiveMessage);
     }
   }
 
@@ -18,6 +21,11 @@ class CurrentChannel extends React.Component {
 
   render() {
     let channelName = "Select A Channel";
+
+    if (!this.props.channel) {
+      return null; //pokedex
+    }
+
     if (this.props.channel) {
       channelName = this.props.channel.name
     }
@@ -34,6 +42,7 @@ class CurrentChannel extends React.Component {
         <ul>
           {channelMessages}
         </ul>
+        <ChannelForm />
       </div>
     )
   }

@@ -5,7 +5,6 @@ const uiReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case SELECT_CHANNEL:
-      debugger;
       return action.channel
     default:
       return state;

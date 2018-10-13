@@ -1,4 +1,5 @@
 import * as ChannelAPIUtil from '../util/channel_api_util';
+import { receiveMessage } from './message_actions';
 
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
@@ -43,3 +44,20 @@ export const deleteChannel = id => dispatch => (
   ChannelAPIUtil.removeChannel(id)
     .then(channel => dispatch(removeChannel(channel)))
 );
+
+export const createChannelSubscription = (channelId, receiveMessage) => dispatch => {
+  debugger
+  App[channelId] = App.cable.subscriptions.create(
+    {channel: "MainChannel", id: channelId},
+    {
+      received: function(data) {
+        debugger
+        const message = JSON.parse(data.message);
+        dispatch(receiveMessage(message));
+      },
+      speak: function(message) {
+        debugger
+        return this.perform('speak', { message });
+      }
+  })
+}
