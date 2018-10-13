@@ -46,17 +46,14 @@ export const deleteChannel = id => dispatch => (
 );
 
 export const createChannelSubscription = (channelId, receiveMessage) => dispatch => {
-  debugger
   App[channelId] = App.cable.subscriptions.create(
     {channel: "MainChannel", id: channelId},
     {
       received: function(data) {
-        debugger
         const message = JSON.parse(data.message);
-        dispatch(receiveMessage(message));
+        receiveMessage(message);
       },
       speak: function(message) {
-        debugger
         return this.perform('speak', { message });
       }
   })

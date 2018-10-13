@@ -9,6 +9,7 @@
 User.destroy_all
 Channel.destroy_all
 Subscription.destroy_all
+Message.destroy_all
 
 user1 = User.create(username: 'Will', email: 'will@aol.com', password: 'secret')
 # user2 = User.create(username: 'Alex', email: 'alex@aol.com', password: 'secret')
@@ -25,3 +26,6 @@ Subscription.create(user_id: user1.id, channel_id: channel2.id)
 Message.create(body: 'this is message 1', user_id: user1.id, channel_id: channel1.id)
 # Message.create(body: 'this is message 2', user_id: user2.id, channel_id: channel1.id)
 Message.create(body: 'this is message 3', user_id: user1.id, channel_id: channel1.id)
+
+Message.create(body: 'this is message 4', user_id: user1.id, channel_id: channel2.id)
+Message.create(body: 'this is message 5', user_id: user1.id, channel_id: channel2.id)

@@ -6,6 +6,7 @@ class ChannelForm extends React.Component {
     this.state = {};
     this.state.body = '';
     this.state.user_id = props.currentUser.id
+    this.state.channel_id = props.currentChannel.id
 
     this.update = this.update.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -19,7 +20,7 @@ class ChannelForm extends React.Component {
 
   handleKeyPress(e) {
     if (e.key === 'Enter' && !e.shiftKey) {
-      debugger;
+      debugger
       App[this.props.currentChannel.id].speak(this.state);
       this.setState({body: ''});
     }

@@ -5,6 +5,7 @@ import { createChannelSubscription } from '../../actions/channel_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const channelId = ownProps.match.params.channelId
+
   return {
     channel: state.entities.channels[channelId] ||
       Object.values(state.entities.channels)[0],
