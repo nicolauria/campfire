@@ -15,9 +15,12 @@ class ChannelList extends React.Component {
     });
 
     return(
-      <ul>
-        {channelItems}
-      </ul>
+      <div className="channel-list">
+        <h2 onClick={this.props.createChannelModal}>Channels &#x2295;</h2>
+        <ul>
+          {channelItems}
+        </ul>
+      </div>
     )
   }
 }

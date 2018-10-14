@@ -4,10 +4,12 @@ import { createChannelSubscription } from '../../actions/channel_actions';
 import ChannelForm from './channel_form_container';
 
 class CurrentChannel extends React.Component {
+
   componentDidMount() {
+    const channelId = this.props.match.params.channelId;
     if (this.props.match) {
-      this.props.requestChannelMessages(this.props.channel.id);
-      this.props.createChannelSubscription(this.props.channel.id, this.props.receiveMessage);
+      this.props.requestChannelMessages(channelId);
+      this.props.createChannelSubscription(channelId, this.props.receiveMessage);
     }
   }
 
@@ -29,19 +31,26 @@ class CurrentChannel extends React.Component {
     if (this.props.channel) {
       channelName = this.props.channel.name
     }
-    const channelMessages = this.props.messages.map(message => {
+
+    let channelMessages = this.props.messages.map(message => {
       return <MessageItem
                 key={message.id}
                 message={message}/>
     });
 
+    if (this.props.messages.length === 0) {
+      channelMessages = <div className="no-messages-here-yet">No messages here yet!</div>;
+    }
+
     return(
       <div className="message-box">
         <h1>{channelName}</h1>
+        <span className="channel-description">{this.props.channel.description}</span>
+        <hr />
         <ul>
           {channelMessages}
         </ul>
-        <ChannelForm />
+        <ChannelForm channel={this.props.channel}/>
       </div>
     )
   }

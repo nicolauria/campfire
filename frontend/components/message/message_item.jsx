@@ -24,12 +24,14 @@ class MessageItem extends React.Component {
   render() {
     return(
       <li>
-        <span className="message-author">
-          {this.props.users[this.props.message.user_id].username}
-        </span>
-        <span className="message-timestamp">{this.time}</span>
-        <br />
-        {this.props.message.body}
+        <div className="individual-message-box">
+          <span className="message-author">
+            {this.props.users[this.props.message.user_id].username}
+          </span>
+          <span className="message-timestamp">{this.time}</span>
+          <br />
+          {this.props.message.body}
+        </div>
       </li>
     )
   }

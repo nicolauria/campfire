@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import ChannelForm from './channel_form';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  currentChannel: state.entities.currentChannel
+  currentChannel: ownProps.channel
 });
 
 export default connect(mapStateToProps)(ChannelForm);

@@ -20,10 +20,10 @@ const removeChannel = channel => ({
   channel
 })
 
-export const requestChannels = () => dispatch => (
-  ChannelAPIUtil.fetchChannels()
+export const requestChannels = () => dispatch => {
+  return ChannelAPIUtil.fetchChannels()
     .then(channels => dispatch(receiveChannels(channels)))
-);
+};
 
 export const requestChannel = id => dispatch => (
   ChannelAPIUtil.fetchChannel()

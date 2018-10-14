@@ -14,9 +14,12 @@ class DMList extends React.Component {
     });
 
     return(
-      <ul>
-        {dm_items}
-      </ul>
+      <div className="direct-message-list">
+        <h2 onClick={this.props.createDmModal}>Direct Messages &#x2295;</h2>
+        <ul>
+          {dm_items}
+        </ul>
+      </div>
     )
   }
 }

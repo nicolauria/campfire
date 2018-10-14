@@ -14,7 +14,11 @@ class DmItem extends React.Component {
 
   render() {
     return(
-      <Link onClick={this.handleSubmit} to={`/channels/${this.props.dm.id}`}>{this.props.dm.name}</Link>
+      <div>
+        <Link onClick={this.handleSubmit}
+              to={`/channels/${this.props.dm.id}`}>
+              {this.props.dm.name}</Link><br />
+      </div>
     )
   }
 }

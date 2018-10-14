@@ -6,6 +6,7 @@ class ChannelSidebar extends React.Component {
 
   componentDidMount() {
     this.props.requestChannels();
+    this.props.requestAllUsers();
   }
 
   render() {
@@ -15,15 +16,11 @@ class ChannelSidebar extends React.Component {
       channel.direct_message === false;
     });
 
-    console.log(channels);
-
     return(
       <div className="channel-sidebar">
         <h1 className="logged-in-username">{this.props.currentUser.username}</h1>
         <button className="sidebar-log-out" onClick={this.props.logOut}>Log Out</button>
-        <h2>Channels</h2>
         <ChannelList />
-        <h2>Direct Messages</h2>
         <DirectMessages />
       </div>
     )
