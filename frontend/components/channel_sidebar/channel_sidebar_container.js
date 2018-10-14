@@ -3,6 +3,7 @@ import ChannelSidebar from './channel_sidebar';
 import { requestChannels } from '../../actions/channel_actions';
 import { logout } from '../../actions/session_actions';
 import { requestAllUsers } from '../../actions/user_actions';
+import { editProfileModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ session, entities: { users, channels }}) => ({
   channels: Object.values(channels),
@@ -12,7 +13,8 @@ const mapStateToProps = ({ session, entities: { users, channels }}) => ({
 const mapDispatchToProps = dispatch => ({
   requestChannels: () => dispatch(requestChannels()),
   logOut: () => dispatch(logout()),
-  requestAllUsers: () => dispatch(requestAllUsers())
+  requestAllUsers: () => dispatch(requestAllUsers()),
+  editProfileModal: () => dispatch(editProfileModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelSidebar);

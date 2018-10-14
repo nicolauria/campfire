@@ -2,6 +2,7 @@ class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(message)
+    # debugger
     ActionCable.server.broadcast 'main_channel', message: render_message(message)
   end
 

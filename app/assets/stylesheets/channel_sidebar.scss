@@ -25,17 +25,30 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.sidebar-log-out {
-  width: 75px;
+.sidebar-log-out,
+.edit-profile-button {
+  // width: 75px;
   font-family: 'Noto Sans JP', sans-serif;
   background: none;
   border: none;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-  margin-bottom: 25px;
-  margin-left: 12px;
+  margin-bottom: 0px;
+  display: block;
+  margin-top: 10px;
 }
+
+.sidebar-log-out {
+  margin-top: 15px;
+}
+
+.edit-profile-button {
+  margin-top: 0;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
 
 .sidebar-log-out:active {
   border: none;
@@ -53,8 +66,22 @@
   margin-left: 20px;
   margin-bottom: 0px;
   -webkit-font-smoothing: auto;
+  display: inline-block;
+  margin: 0;
+  margin-left: 10px;
 }
 
 .channel-list-item {
   cursor: pointer;
+}
+
+.profile-image {
+  height: 40px;
+  width: 40px;
+  float: left;
+  border: 1px solid #fff;
+}
+
+.user-profile-info {
+  padding: 20px;
 }

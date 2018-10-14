@@ -27,13 +27,37 @@
   border: 0;
 }
 
-.channel-form {
+.create-channel-form {
   width: 500px;
   margin: 0 auto;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 85px;
 }
 
-.channel-form button {
+.create-channel-form button {
   font-size: 18px;
+}
+
+.edit-profile-form {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.edit-profile-from button {
+  font-size: 18px;
+}
+
+.file-submit-button {
+  border: 1px solid #919193;
+  border-radius: 5px;
+  padding: 12px;
+  width: 270px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.file-submit-button:hover {
+  background: #f9f9f9;
 }

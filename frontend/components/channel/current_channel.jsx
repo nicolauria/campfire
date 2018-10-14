@@ -2,14 +2,18 @@ import React from 'react';
 import MessageItem from '../message/message_item_container';
 import { createChannelSubscription } from '../../actions/channel_actions';
 import ChannelForm from './channel_form_container';
+import { Link } from 'react-router-dom';
 
 class CurrentChannel extends React.Component {
 
   componentDidMount() {
     const channelId = this.props.match.params.channelId;
+    // necessary bind?
+    const receiveMessage = this.props.receiveMessage.bind(this);
     if (this.props.match) {
       this.props.requestChannelMessages(channelId);
-      this.props.createChannelSubscription(channelId, this.props.receiveMessage);
+      debugger
+      this.props.createChannelSubscription(channelId, receiveMessage);
     }
   }
 

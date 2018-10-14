@@ -29,7 +29,7 @@ class CreateChannelForm extends React.Component {
   render() {
 
     return (
-      <div className="channel-form">
+      <div className="create-channel-form">
       <h1>Create A New Channel</h1>
         <form onSubmit={this.submit}>
           <input type="text"

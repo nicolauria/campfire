@@ -15,8 +15,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   requestChannelMessages: id => dispatch(requestChannelMessages(id)),
-  createChannelSubscription: (channelId, receiveMessage) => dispatch(createChannelSubscription(channelId, receiveMessage)),
-  receiveMessage: message => dispatch(receiveMessage(message))
+  createChannelSubscription: (channelId, receiveMessage) =>
+    dispatch(createChannelSubscription(channelId, receiveMessage)),
+  receiveMessage: message => dispatch(receiveMessage(message)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentChannel);

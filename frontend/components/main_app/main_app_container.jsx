@@ -12,10 +12,6 @@ const mapStateToProps = ({ session, entities: { users } }) => ({
 class MainApp extends React.Component {
   render() {
     return (
-      // <div className="main">
-      //   <ChannelSidebarContainer />
-      //   <Route path="/channels/:channelId" component={CurrentChannel}/>
-      // </div>
       <div className="main">
         <ChannelSidebar />
         <ModalContainer />

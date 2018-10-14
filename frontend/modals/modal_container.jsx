@@ -4,9 +4,10 @@ import { Route, Switch } from 'react-router-dom';
 
 import CreateChannelForm from './create_channel_form_container';
 import CreateDmForm from './create_dm_form';
+import EditProfileForm from './edit_profile_form';
 
 import { clearModal } from '../actions/modal_actions';
-import { CREATE_CHANNEL_MODAL, CREATE_DM_MODAL } from '../actions/modal_actions';
+import { CREATE_CHANNEL_MODAL, CREATE_DM_MODAL, EDIT_PROFILE_MODAL } from '../actions/modal_actions';
 
 const mapStateToProps = state => (
   { modal: state.ui.modal }
@@ -33,6 +34,13 @@ const ModalConductor = (props) => {
           <CreateDmForm />
         </div>
       );
+    case EDIT_PROFILE_MODAL:
+    return (
+      <div className='modal'>
+        <button onClick={props.clearModal}>&#10005;</button>
+        <EditProfileForm />
+      </div>
+    );
     default:
       return null;
   }

@@ -18,8 +18,14 @@ class ChannelSidebar extends React.Component {
 
     return(
       <div className="channel-sidebar">
-        <h1 className="logged-in-username">{this.props.currentUser.username}</h1>
-        <button className="sidebar-log-out" onClick={this.props.logOut}>Log Out</button>
+        <div className="user-profile-info">
+          <img className="profile-image" src="http://funkyimg.com/i/2M6Uc.jpeg"/>
+          <h1 className="logged-in-username">{this.props.currentUser.username}</h1>
+          <button className="sidebar-log-out" onClick={this.props.logOut}>
+             Log Out</button>
+          <button className="edit-profile-button"
+            onClick={this.props.editProfileModal}>Edit Profile</button>
+          </div>
         <ChannelList />
         <DirectMessages />
       </div>

@@ -4,8 +4,20 @@
   cursor: pointer;
 }
 
+.channel-list h2 {
+  margin-top: 0;
+}
+
+.channel-list ul {
+  padding-left: 21px;
+}
+
 .channel-description {
   margin-left: 37px;
   margin-bottom: 6px;
   display: inline-block;
+}
+
+.direct-message-list ul {
+  padding-left: 21px;
 }
