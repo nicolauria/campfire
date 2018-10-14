@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :channels, through: :subscriptions
   has_many :messages
 
+  has_one_attached :photo
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)
