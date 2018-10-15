@@ -1,5 +1,6 @@
 import * as ChannelAPIUtil from '../util/channel_api_util';
 import { receiveMessage } from './message_actions';
+import { receiveErrors } from './session_actions';
 
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
@@ -10,10 +11,11 @@ const receiveChannels = channels => ({
   channels
 });
 
-const receiveChannel = channel => ({
-  type: RECEIVE_CHANNEL,
-  channel
-});
+const receiveChannel = channel => {
+  debugger
+  return { type: RECEIVE_CHANNEL,
+  channel }
+};
 
 const removeChannel = channel => ({
   type: REMOVE_CHANNEL,
@@ -30,10 +32,12 @@ export const requestChannel = id => dispatch => (
     .then(channel => dispatch(receiveChannel(channel)))
 );
 
-export const createChannel = channel => dispatch => (
-  ChannelAPIUtil.createChannel(channel)
-    .then(channel => dispatch(receiveChannel(channel)))
-);
+export const createChannel = channel => dispatch => {
+  // debugger
+  return ChannelAPIUtil.createChannel(channel)
+    .then(channel => dispatch(receiveChannel(channel)),
+    err => dispatch(receiveErrors(err.responseJSON)))
+};
 
 export const updateChannel = channel => dispatch => (
   ChannelAPIUtil.updateChannel(channel)

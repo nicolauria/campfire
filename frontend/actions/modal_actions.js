@@ -4,14 +4,12 @@ export const CLEAR_MODAL = 'CLEAR_MODAL';
 export const EDIT_PROFILE_MODAL = 'EDIT_PROFILE_MODAL';
 
 export const createChannelModal = () => {
-  debugger
   return({
     type: CREATE_CHANNEL_MODAL
   })
 };
 
 export const createDmModal = () => {
-  debugger
   return({
     type: CREATE_DM_MODAL
   })

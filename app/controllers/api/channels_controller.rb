@@ -7,8 +7,9 @@ class Api::ChannelsController < ApplicationController
   def create
     @channel = Channel.new(channel_params)
     if @channel.save
+      debugger
       Subscription.create(user_id: current_user.id, channel_id: @channel.id)
-      render json: "api/channels/show"
+      render "api/channels/show"
     else
       render json: @channel.errors.full_messages
     end
