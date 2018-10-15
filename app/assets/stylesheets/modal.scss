@@ -27,14 +27,16 @@
   border: 0;
 }
 
-.create-channel-form {
+.create-channel-form,
+.creat-dm-form {
   width: 500px;
   margin: 0 auto;
   text-align: center;
   margin-top: 85px;
 }
 
-.create-channel-form button {
+.create-channel-form button,
+.create-dm-form button {
   font-size: 18px;
 }
 

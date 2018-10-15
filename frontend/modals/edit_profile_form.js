@@ -21,8 +21,8 @@ class EditProfileForm extends React.Component {
       username: '',
       email: '',
       password: '',
-      photoFile: null,
-      photoUrl: null
+      photo: null,
+      // photoUrl: null
     }
     this.state.username = this.props.currentUser.username;
     this.state.email = this.props.currentUser.email;
@@ -58,21 +58,32 @@ class EditProfileForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.updateUser(user);
+    // const formData = new FormData();
+    // formData.append('user[username]', this.state.username)
+    // formData.append('user[email]', this.state.email)
+    // formData.append('user[password]', this.state.password)
+    // debugger
+    //
+    // if (this.state.photoFile) {
+    //   formData.append('user'[photo], this.state.photo)
+    // }
+
+    this.props.updateUser(this.state);
     this.props.clearModal();
   }
 
   handleFile(e) {
+    // debugger
     const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-
-      this.setState({photoFile: file, photoUrl: fileReader.result});
-    };
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
+    this.setState({photo: file});
+    // const fileReader = new FileReader();
+    // fileReader.onloadend = () => {
+    //
+    //   this.setState({photoFile: file, photoUrl: fileReader.result});
+    // };
+    // if (file) {
+    //   fileReader.readAsDataURL(file);
+    // }
   }
 
   render() {

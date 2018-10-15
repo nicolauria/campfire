@@ -8,7 +8,7 @@ import { createChannel } from '../actions/channel_actions';
 const mapStateToProps = state => ({
   name: '',
   description: '',
-  private: false,
+  private: true,
 });
 
 const mapDispatchToProps = dispatch => {
@@ -33,6 +33,12 @@ class CreateDmForm extends React.Component {
     this.submit = this.submit.bind(this);
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({[field]: e.target.value});
+    };
+  }
+
   submit(e) {
     e.preventDefault();
     this.props.createChannel(this.state);
@@ -41,7 +47,7 @@ class CreateDmForm extends React.Component {
 
   render() {
     return (
-      <div className="dm-form">
+      <div className="create-channel-form">
       <h1>Send a Direct Message</h1>
         <form onSubmit={this.submit}>
           <input type="text"
@@ -52,7 +58,7 @@ class CreateDmForm extends React.Component {
             value={this.state.description}
             placeholder="description"
             onChange={this.update('description')}/><br />
-          <button className="session-sumibt"
+          <button className="session-submit"
                   onClick={this.submit}>Send Message</button>
         </form>
       </div>

@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  creatDmModal: () => dispatch(createDmModal())
+  createDmModal: () => dispatch(createDmModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DMList);

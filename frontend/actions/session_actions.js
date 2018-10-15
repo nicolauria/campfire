@@ -45,8 +45,9 @@ export const logout = () => dispatch => (
   ))
 );
 
-export const updateUser = user => dispatch => (
-  APIUtil.updateUser(user)
-    .then(user => dispatch(eceiveCurrentUser(user))),
+export const updateUser = formData => dispatch => {
+  // debugger
+  return APIUtil.updateUser(formData)
+    .then(user => dispatch(receiveCurrentUser(user))),
   err => (dispatch(receiveErrors(err.responseJSON)))
-);
+};
