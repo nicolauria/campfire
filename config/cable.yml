@@ -1,6 +1,5 @@
 development:
   adapter: async
-  # adapter: redis
 
 test:
   adapter: async
@@ -8,6 +7,5 @@ test:
 production:
   adapter: redis
   # url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  # url: <%=ENV['REDISTOGO_URL']%>
   url: redis://redistogo:370ef38ec0628efde8ca5603b28c0912@crestfish.redistogo.com:10006/
   channel_prefix: patter_production

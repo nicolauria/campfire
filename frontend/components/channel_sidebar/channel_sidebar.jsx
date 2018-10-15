@@ -16,10 +16,12 @@ class ChannelSidebar extends React.Component {
       channel.direct_message === false;
     });
 
+    // <img className="profile-image" src="http://funkyimg.com/i/2M6Uc.jpeg"/>
+
     return(
       <div className="channel-sidebar">
         <div className="user-profile-info">
-          <img className="profile-image" src="http://funkyimg.com/i/2M6Uc.jpeg"/>
+
           <h1 className="logged-in-username">{this.props.currentUser.username}</h1>
           <button className="sidebar-log-out" onClick={this.props.logOut}>
              Log Out</button>

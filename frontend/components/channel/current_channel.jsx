@@ -8,11 +8,8 @@ class CurrentChannel extends React.Component {
 
   componentDidMount() {
     const channelId = this.props.match.params.channelId;
-    // necessary bind?
-    // const receiveMessage = this.props.receiveMessage.bind(this);
     if (this.props.match) {
       this.props.requestChannelMessages(channelId);
-      // debugger
       this.props.createChannelSubscription(channelId, this.props.receiveMessage);
     }
   }
@@ -30,7 +27,7 @@ class CurrentChannel extends React.Component {
     let channelName = "Select A Channel";
 
     if (!this.props.channel) {
-      return null; //pokedex
+      return null;
     }
 
     if (this.props.channel) {

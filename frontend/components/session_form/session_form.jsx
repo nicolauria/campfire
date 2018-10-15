@@ -131,7 +131,7 @@ class SessionForm extends React.Component {
             <div>
               <Link to="/" className="header-link">
                 <img className="patter-logo" src="http://funkyimg.com/i/2M5GP.png"/>
-                <h1>Campfire</h1>
+                <h1>Patter</h1>
               </Link>
             </div>
             <div className="greeting-container">
