@@ -78,10 +78,15 @@
 
 .dm-search-results p {
   cursor: pointer;
+  line-height: 18px;
 }
 
 .dm-search-results-empty {
   display: none;
+}
+
+.dm-search-results img {
+  margin-top: -15px;
 }
 
 .dm-users-added {

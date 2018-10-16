@@ -16,7 +16,6 @@ class CreateDmForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
-    this.selectedUsers = this.selectedUsers.bind(this);
   }
 
   update(field) {
@@ -26,17 +25,7 @@ class CreateDmForm extends React.Component {
   }
 
   handleInput(e) {
-    debugger
     this.setState({search: e.currentTarget.value}, () => this.selectedUsers());
-    // if (this.timeout) {
-    //   clearTimeout(this.timeout);
-    // }
-    // this.setState({search: e.target.value},
-    //   () => this.timeout = setTimeout(() => {
-    //     this.props.searchUsers(this.state.search).then(
-    //     () => this.setState({searchedUsers: this.props.searchedUsers}));
-    //   }, 500)
-    // );
   }
 
   selectedUsers() {
@@ -66,8 +55,16 @@ class CreateDmForm extends React.Component {
 
   clearUser(user) {
     return () => {
-      // debugger
-      delete this.state.addedUsers[user];
+      // console.log(this.state.addedUsers);
+      let index = this.state.addedUsers.indexOf(user);
+      let newArr = this.state.addedUsers;
+      // console.log(newArr);
+      // newArr = newArr.concat(this.state.addedUsers.splice(index, this.state.addedUsers.length));
+      delete newArr[index];
+      // this.state.addedUsers.slice(index);
+      console.log(newArr);
+      newArr = newArr.filter(el => el !== 'empty');
+      this.setState({addedUsers: newArr});
     }
   }
 
@@ -85,7 +82,9 @@ class CreateDmForm extends React.Component {
 
     if (this.state.userMatches.length > 0) {
       userMatchesDiv = this.state.userMatches.map(match => {
-        return <p onClick={this.addUser(match)}>{match.username}</p>;
+        return <p onClick={this.addUser(match)}>
+          <img className="profile-image" src={match.photoUrl}/>
+          {match.username}</p>;
       });
       dmSearchResults = "dm-search-results";
     }

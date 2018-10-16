@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import CurrentChannel from './current_channel';
 import { requestChannelMessages, receiveMessage } from '../../actions/message_actions';
 import { createChannelSubscription } from '../../actions/channel_actions';
+import { requestAllUsers } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const channelId = ownProps.match.params.channelId
@@ -14,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  requestAllUsers: () => dispatch(requestAllUsers()),
   requestChannelMessages: id => dispatch(requestChannelMessages(id)),
   createChannelSubscription: (channelId, receiveMessage) =>
     dispatch(createChannelSubscription(channelId, receiveMessage)),
