@@ -81,10 +81,13 @@ class CreateDmForm extends React.Component {
     }
 
     let userMatchesDiv = null;
+    let dmSearchResults = "dm-search-results-empty";
+
     if (this.state.userMatches.length > 0) {
       userMatchesDiv = this.state.userMatches.map(match => {
         return <p onClick={this.addUser(match)}>{match.username}</p>;
-      })
+      });
+      dmSearchResults = "dm-search-results";
     }
 
     return (
@@ -96,7 +99,7 @@ class CreateDmForm extends React.Component {
             onChange={this.handleInput}
             value={this.state.search}/><br />
           <div className="added-users-div">{addedUsersDiv}</div>
-          <div className="dm-search-results-list">
+          <div className={dmSearchResults}>
             {userMatchesDiv}
           </div>
           <button className="session-submit">Send Message</button>
