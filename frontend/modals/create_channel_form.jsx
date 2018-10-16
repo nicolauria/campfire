@@ -13,6 +13,7 @@ class CreateChannelForm extends React.Component {
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUrlChange = this.handleUrlChange.bind(this);
   }
 
   componentDidMount() {
@@ -44,10 +45,14 @@ class CreateChannelForm extends React.Component {
     };
   }
 
+  handleUrlChange(response) {
+    return this.props.history.push(`/channels/${response.channel.id}`)
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.formAction(this.state);
-    this.props.clearModal();
+    this.props.formAction(this.state).then(response =>
+      this.handleUrlChange(response)).then(() => this.props.clearModal());
   }
 
   render() {

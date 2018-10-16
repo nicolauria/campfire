@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import CreateChannelForm from './create_channel_form_container';
 import CreateDmForm from './create_dm_form_container';
@@ -24,14 +24,14 @@ const ModalConductor = (props) => {
       return (
         <div className='modal'>
           <button onClick={props.clearModal}>&#10005;</button>
-          <CreateChannelForm />
+          <CreateChannelForm history={props.history}/>
         </div>
       );
     case CREATE_DM_MODAL:
       return (
         <div className='modal'>
           <button onClick={props.clearModal}>&#10005;</button>
-          <CreateDmForm />
+          <CreateDmForm history={props.history}/>
         </div>
       );
     case EDIT_PROFILE_MODAL:
@@ -47,4 +47,4 @@ const ModalConductor = (props) => {
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalConductor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ModalConductor));

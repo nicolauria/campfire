@@ -16,6 +16,7 @@ class CreateDmForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleUrlChange = this.handleUrlChange.bind(this);
   }
 
   update(field) {
@@ -44,12 +45,16 @@ class CreateDmForm extends React.Component {
     }
   }
 
+  handleUrlChange(response) {
+    return this.props.history.push(`/channels/${response.channel.id}`)
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.addedUsers.length > 0) {
       this.state.name = this.state.addedUsers[0].username
-      this.props.createChannel(this.state);
-      this.props.clearModal();
+      this.props.createChannel(this.state).then(response =>
+        this.handleUrlChange(response)).then(() => this.props.clearModal());
     }
   }
 

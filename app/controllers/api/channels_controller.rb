@@ -5,8 +5,6 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    # random code
-    # debugger
     @channel = Channel.new(channel_params)
     if @channel.save
       Subscription.create(user_id: current_user.id, channel_id: @channel.id)
