@@ -12,7 +12,6 @@ const receiveChannels = channels => ({
 });
 
 const receiveChannel = channel => {
-  debugger
   return { type: RECEIVE_CHANNEL,
   channel }
 };

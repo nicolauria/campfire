@@ -10,7 +10,8 @@ class CreateDmForm extends React.Component {
       private: props.private,
       direct_message: true,
       search: '',
-      userMatches: []
+      userMatches: [],
+      addedUsers: []
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,8 +32,8 @@ class CreateDmForm extends React.Component {
   }
 
   handleInput(e) {
+    debugger
     this.setState({search: e.currentTarget.value}, () => this.selectedUsers());
-
     // if (this.timeout) {
     //   clearTimeout(this.timeout);
     // }
@@ -45,11 +46,17 @@ class CreateDmForm extends React.Component {
   }
 
   selectedUsers() {
-    // debugger
     let userMatches = this.props.users.filter(user => {
-      return user.username.includes(this.state.search)
+      return user.username.includes(this.state.search) && this.state.search.length > 1
     });
     this.setState({userMatches: userMatches})
+  }
+
+  addUser(user) {
+    return () => {
+      let joined = this.state.addedUsers.push(user);
+      this.setState({addedUsers: joined});
+    }
   }
 
   render() {
@@ -69,9 +76,11 @@ class CreateDmForm extends React.Component {
             placeholder="Search users"
             onChange={this.handleInput}
             value={this.state.search}/><br />
+          <div className="dm-search-results-list">
             {this.state.userMatches.map(match => {
-              return <li>{match.username}</li>;
+              return <p onClick={this.addUser(match)}>{match.username}</p>;
             })}
+          </div>
           <button className="session-submit">Send Message</button>
         </form>
       </div>

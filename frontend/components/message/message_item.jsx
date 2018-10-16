@@ -26,7 +26,7 @@ class MessageItem extends React.Component {
       <li>
         <div className="individual-message-box">
           <span className="message-author">
-            <img className="profile-image" src={this.props.currentUser.photoUrl}/>
+            <img className="profile-image" src={this.props.users[this.props.message.user_id].photoUrl}/>
             {this.props.users[this.props.message.user_id].username}
           </span>
           <span className="message-timestamp">{this.time}</span>
