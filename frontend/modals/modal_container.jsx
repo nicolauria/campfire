@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import CreateChannelForm from './create_channel_form_container';
-import CreateDmForm from './create_dm_form';
+import CreateDmForm from './create_dm_form_container';
 import EditProfileForm from './edit_profile_form';
 
 import { clearModal } from '../actions/modal_actions';

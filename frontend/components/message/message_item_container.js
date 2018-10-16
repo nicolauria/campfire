@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import MessageItem from './message_item';
 
-const mapStateToProps = ({entities: { users }}) => ({
-  users: users
+const mapStateToProps = ({session, entities: { users }}) => ({
+  users: users,
+  currentUser: users[session.id]
 });
 
 const mapDispatchToProps = dispatch => ({

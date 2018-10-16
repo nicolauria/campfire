@@ -1,23 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import { clearModal } from '../actions/modal_actions';
-import { createChannel } from '../actions/channel_actions';
-
-
-const mapStateToProps = state => ({
-  name: '',
-  description: '',
-  private: true,
-});
-
-const mapDispatchToProps = dispatch => {
-  return {
-    createChannel: (channel) =>
-      dispatch(createChannel(channel)),
-    clearModal: () => dispatch(clearModal()),
-  };
-};
 
 class CreateDmForm extends React.Component {
 
@@ -27,10 +8,14 @@ class CreateDmForm extends React.Component {
       name: props.name,
       description: props.description,
       private: props.private,
-      direct_message: true
+      direct_message: true,
+      search: '',
+      userMatches: []
     };
     this.update = this.update.bind(this);
-    this.submit = this.submit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.selectedUsers = this.selectedUsers.bind(this);
   }
 
   update(field) {
@@ -39,17 +24,39 @@ class CreateDmForm extends React.Component {
     };
   }
 
-  submit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     this.props.createChannel(this.state);
     this.props.clearModal();
+  }
+
+  handleInput(e) {
+    this.setState({search: e.currentTarget.value}, () => this.selectedUsers());
+
+    // if (this.timeout) {
+    //   clearTimeout(this.timeout);
+    // }
+    // this.setState({search: e.target.value},
+    //   () => this.timeout = setTimeout(() => {
+    //     this.props.searchUsers(this.state.search).then(
+    //     () => this.setState({searchedUsers: this.props.searchedUsers}));
+    //   }, 500)
+    // );
+  }
+
+  selectedUsers() {
+    // debugger
+    let userMatches = this.props.users.filter(user => {
+      return user.username.includes(this.state.search)
+    });
+    this.setState({userMatches: userMatches})
   }
 
   render() {
     return (
       <div className="create-channel-form">
       <h1>Send a Direct Message</h1>
-        <form onSubmit={this.submit}>
+        <form onSubmit={this.handleSubmit}>
           <input type="text"
             value={this.state.name}
             placeholder="Name"
@@ -58,8 +65,14 @@ class CreateDmForm extends React.Component {
             value={this.state.description}
             placeholder="description"
             onChange={this.update('description')}/><br />
-          <button className="session-submit"
-                  onClick={this.submit}>Send Message</button>
+          <input type="text"
+            placeholder="Search users"
+            onChange={this.handleInput}
+            value={this.state.search}/><br />
+            {this.state.userMatches.map(match => {
+              return <li>{match.username}</li>;
+            })}
+          <button className="session-submit">Send Message</button>
         </form>
       </div>
     );
@@ -67,4 +80,4 @@ class CreateDmForm extends React.Component {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateDmForm);
+export default CreateDmForm;

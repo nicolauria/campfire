@@ -58,36 +58,25 @@ class EditProfileForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append('user[username]', this.state.username)
-    // formData.append('user[email]', this.state.email)
-    // formData.append('user[password]', this.state.password)
-    // debugger
-    //
-    // if (this.state.photoFile) {
-    //   formData.append('user'[photo], this.state.photo)
-    // }
+    const formData = new FormData();
+    formData.append('user[username]', this.state.username)
+    formData.append('user[email]', this.state.email)
+    formData.append('user[password]', this.state.password)
+    if (this.state.photo) {
+      formData.append('user[photo]', this.state.photo)
+    }
 
-    this.props.updateUser(this.state);
+    this.props.updateUser(formData);
     this.props.clearModal();
   }
 
   handleFile(e) {
-    // debugger
+    debugger
     const file = e.currentTarget.files[0];
     this.setState({photo: file});
-    // const fileReader = new FileReader();
-    // fileReader.onloadend = () => {
-    //
-    //   this.setState({photoFile: file, photoUrl: fileReader.result});
-    // };
-    // if (file) {
-    //   fileReader.readAsDataURL(file);
-    // }
   }
 
   render() {
-    // const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
     return(
       <div className="edit-profile-form">
       <h1>Edit User Profile</h1>

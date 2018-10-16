@@ -6,7 +6,6 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
       login(@user)
       render "api/users/show"
@@ -16,7 +15,6 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    # debugger
     @user = current_user
     if @user.update(user_params)
       render "api/users/show"
@@ -28,6 +26,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :photoFile)
+    params.require(:user).permit(:username, :password, :email, :photo)
   end
 end
