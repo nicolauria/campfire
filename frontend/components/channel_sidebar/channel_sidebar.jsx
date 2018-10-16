@@ -5,8 +5,7 @@ import DirectMessages from '../direct_messages/dm_list_container';
 class ChannelSidebar extends React.Component {
 
   componentDidMount() {
-    this.props.requestChannels();
-    this.props.requestAllUsers();
+    this.props.requestChannels().then(() => this.props.requestAllUsers());
   }
 
   render() {
@@ -15,8 +14,6 @@ class ChannelSidebar extends React.Component {
     const channels = Object.values(this.props.channels).filter(channel => {
       channel.direct_message === false;
     });
-
-    // <img className="profile-image" src="http://funkyimg.com/i/2M6Uc.jpeg"/>
 
     return(
       <div className="channel-sidebar">
