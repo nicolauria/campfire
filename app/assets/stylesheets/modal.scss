@@ -64,10 +64,49 @@
   background: #f9f9f9;
 }
 
-// .dm-search-results-list p {
-//   list-style-type: none;
-// }
+.dm-search-results-list {
+  text-align: left;
+  margin-top: 0px;
+  max-height: 200px;
+  overflow: scroll;
+  p {
+    cursor: pointer;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px;
+  }
+}
 
 .dm-search-results-list p {
   cursor: pointer;
+}
+
+.dm-users-added {
+  width: 275px;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #919193;
+  border-radius: 5px;
+}
+
+.added-users-div {
+  // text-align: left;
+  margin: 0 auto;
+  margin-top: 30px;
+  // width: 275px;
+  span {
+    color: #fff;
+    padding: 10px 15px;
+    background: #2d9ee0;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+}
+
+.dm-form .session-submit {
+  margin-top: 0;
+}
+
+.dm-form input {
+  margin-bottom: 0;
 }

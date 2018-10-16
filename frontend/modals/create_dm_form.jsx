@@ -5,9 +5,9 @@ class CreateDmForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: props.name,
-      description: props.description,
-      private: props.private,
+      name: '',
+      description: '',
+      private: true,
       direct_message: true,
       search: '',
       userMatches: [],
@@ -23,12 +23,6 @@ class CreateDmForm extends React.Component {
     return (e) => {
       this.setState({[field]: e.target.value});
     };
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.createChannel(this.state);
-    this.props.clearModal();
   }
 
   handleInput(e) {
@@ -54,32 +48,56 @@ class CreateDmForm extends React.Component {
 
   addUser(user) {
     return () => {
-      let joined = this.state.addedUsers.push(user);
-      this.setState({addedUsers: joined});
+      if (!this.state.addedUsers.includes(user)) {
+        let joined = this.state.addedUsers.concat(user);
+        this.setState({addedUsers: joined});
+      }
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.addedUsers.length > 0) {
+      this.state.name = this.state.addedUsers[0].username
+      this.props.createChannel(this.state);
+      this.props.clearModal();
+    }
+  }
+
+  clearUser(user) {
+    return () => {
+      // debugger
+      delete this.state.addedUsers[user];
     }
   }
 
   render() {
+    let addedUsersDiv = null;
+    if (this.state.addedUsers.length > 0) {
+      addedUsersDiv = this.state.addedUsers.map(user => {
+        return <span className="added-dm-user" onClick={this.clearUser(user)}>
+          {user.username} x</span>
+      });
+    }
+
+    let userMatchesDiv = null;
+    if (this.state.userMatches.length > 0) {
+      userMatchesDiv = this.state.userMatches.map(match => {
+        return <p onClick={this.addUser(match)}>{match.username}</p>;
+      })
+    }
+
     return (
-      <div className="create-channel-form">
+      <div className="create-channel-form dm-form">
       <h1>Send a Direct Message</h1>
         <form onSubmit={this.handleSubmit}>
-          <input type="text"
-            value={this.state.name}
-            placeholder="Name"
-            onChange={this.update('name')}/><br />
-          <input type="text"
-            value={this.state.description}
-            placeholder="description"
-            onChange={this.update('description')}/><br />
           <input type="text"
             placeholder="Search users"
             onChange={this.handleInput}
             value={this.state.search}/><br />
+          <div className="added-users-div">{addedUsersDiv}</div>
           <div className="dm-search-results-list">
-            {this.state.userMatches.map(match => {
-              return <p onClick={this.addUser(match)}>{match.username}</p>;
-            })}
+            {userMatchesDiv}
           </div>
           <button className="session-submit">Send Message</button>
         </form>

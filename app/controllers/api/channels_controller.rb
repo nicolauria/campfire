@@ -8,6 +8,9 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
     if @channel.save
       Subscription.create(user_id: current_user.id, channel_id: @channel.id)
+      @channel.addedUsers.each do |user|
+        Subscription.create(user_id: user.id, channel_id: @channel.id)
+      end
       render "api/channels/show"
     else
       render json: @channel.errors.full_messages
@@ -29,6 +32,6 @@ class Api::ChannelsController < ApplicationController
 
   private
   def channel_params
-    params.require(:channel).permit(:name, :private, :description, :direct_message)
+    params.require(:channel).permit(:name, :private, :description, :direct_message, :addedUsers)
   end
 end

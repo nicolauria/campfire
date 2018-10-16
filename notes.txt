@@ -1,0 +1,4 @@
+how to tell if a function is async
+
+do components always rerender anytime setState is called?
+- why is create_dm_form not rerendering
