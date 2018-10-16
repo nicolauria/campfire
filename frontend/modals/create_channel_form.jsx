@@ -8,7 +8,8 @@ class CreateChannelForm extends React.Component {
       name: props.name,
       description: props.description,
       private: props.private,
-      direct_message: false
+      direct_message: false,
+      addedUsers: []
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,7 +46,8 @@ class CreateChannelForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.formAction(this.state);
+    // this.props.formAction(this.state)
+    createChannel(this.state);
     // this.props.clearModal();
   }
 

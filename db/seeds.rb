@@ -56,3 +56,11 @@ Subscription.create(user_id: user2.id, channel_id: channel4.id)
 
 Message.create(body: 'this is message 7', user_id: user2.id, channel_id: channel3.id)
 Message.create(body: 'this is message 8', user_id: user2.id, channel_id: channel3.id)
+
+# ----------
+
+user3 = User.create(username: 'Guest1', email: 'guest1@aol.com', password: 'secret')
+user4 = User.create(username: 'Guest2', email: 'guest2@aol.com', password: 'secret')
+user5 = User.create(username: 'Guest3', email: 'guest3@aol.com', password: 'secret')
+user6 = User.create(username: 'Guest4', email: 'guest4@aol.com', password: 'secret')
+user7 = User.create(username: 'Guest5', email: 'guest5@aol.com', password: 'secret')

@@ -8,8 +8,10 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
     if @channel.save
       Subscription.create(user_id: current_user.id, channel_id: @channel.id)
-      @channel.addedUsers.each do |user|
-        Subscription.create(user_id: user.id, channel_id: @channel.id)
+      if params[:channel][:addedUsers]
+        params[:channel][:addedUsers].each do |user|
+          Subscription.create(user_id: user.id, channel_id: @channel.id)
+        end
       end
       render "api/channels/show"
     else

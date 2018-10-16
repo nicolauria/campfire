@@ -13,8 +13,9 @@ class CurrentChannel extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const channelId = nextProps.match.params.channelId;
     if (this.props.match) {
-      if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
+      if (this.props.match.params.channelId !== channelId) {
         this.props.requestAllUsers().then(() => this.props.requestChannelMessages(channelId))
         .then(() => this.props.createChannelSubscription(channelId, this.props.receiveMessage));
       }
