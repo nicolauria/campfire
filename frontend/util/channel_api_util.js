@@ -12,13 +12,13 @@ export const fetchChannel = id => (
   })
 );
 
-export const createChannel = channel => (
-  $.ajax({
+export const createChannel = channel => {
+   return $.ajax({
     method: 'POST',
     url: 'api/channels',
     data: { channel }
   })
-);
+};
 
 export const updateChannel = channel => (
   $.ajax({

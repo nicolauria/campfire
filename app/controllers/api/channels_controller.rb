@@ -5,12 +5,14 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
+    # random code
+    # debugger
     @channel = Channel.new(channel_params)
     if @channel.save
       Subscription.create(user_id: current_user.id, channel_id: @channel.id)
       if params[:channel][:addedUsers]
         params[:channel][:addedUsers].each do |user|
-          Subscription.create(user_id: user.id, channel_id: @channel.id)
+          Subscription.create(user_id: user[1][:id].to_i, channel_id: @channel.id)
         end
       end
       render "api/channels/show"
@@ -34,6 +36,6 @@ class Api::ChannelsController < ApplicationController
 
   private
   def channel_params
-    params.require(:channel).permit(:name, :private, :description, :direct_message, :addedUsers)
+    params.require(:channel).permit(:name, :private, :description, :direct_message, addedUsers: [])
   end
 end

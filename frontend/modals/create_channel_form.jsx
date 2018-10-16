@@ -46,9 +46,8 @@ class CreateChannelForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.formAction(this.state)
-    createChannel(this.state);
-    // this.props.clearModal();
+    this.props.formAction(this.state);
+    this.props.clearModal();
   }
 
   render() {

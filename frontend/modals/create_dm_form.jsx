@@ -32,7 +32,7 @@ class CreateDmForm extends React.Component {
     let userMatches = this.props.users.filter(user => {
       return user.username.includes(this.state.search) && this.state.search.length > 1
     });
-    this.setState({userMatches: userMatches})
+    this.setState({userMatches: Object.values(userMatches)})
   }
 
   addUser(user) {
@@ -55,14 +55,10 @@ class CreateDmForm extends React.Component {
 
   clearUser(user) {
     return () => {
-      // console.log(this.state.addedUsers);
       let index = this.state.addedUsers.indexOf(user);
       let newArr = this.state.addedUsers;
-      // console.log(newArr);
-      // newArr = newArr.concat(this.state.addedUsers.splice(index, this.state.addedUsers.length));
+
       delete newArr[index];
-      // this.state.addedUsers.slice(index);
-      console.log(newArr);
       newArr = newArr.filter(el => el !== 'empty');
       this.setState({addedUsers: newArr});
     }
