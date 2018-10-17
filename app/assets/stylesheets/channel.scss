@@ -52,8 +52,14 @@
 }
 
 .workspace-default-image {
+  position: absolute;
   height: 50px;
   display: inline-block;
   margin-top: 10px;
   margin-left: 20px;
+}
+
+.channel-header {
+  position: relative;
+  border: 1px solid lightgrey;
 }
