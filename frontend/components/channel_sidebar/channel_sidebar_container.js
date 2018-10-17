@@ -4,6 +4,7 @@ import { requestChannels } from '../../actions/channel_actions';
 import { logout } from '../../actions/session_actions';
 import { requestAllUsers } from '../../actions/user_actions';
 import { editProfileModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ session, entities: { users, channels }}) => ({
   channels: Object.values(channels),
@@ -17,4 +18,4 @@ const mapDispatchToProps = dispatch => ({
   editProfileModal: () => dispatch(editProfileModal())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelSidebar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelSidebar));

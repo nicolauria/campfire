@@ -13,11 +13,6 @@ const mapDispatchToProps = dispatch => ({
 
 class NoChannelsYet extends React.Component {
   
-
-  componentDidMount() {
-
-  }
-
   render() {
     return(
       <div className="no-channels-yet">
