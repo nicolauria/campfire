@@ -19,13 +19,14 @@
 
  body {
    font-family: 'Open Sans', sans-serif;
-   background-color: #f9f9f9;
+   /* background-color: #f9f9f9; */
    margin: 0;
  }
 
  #root {
    /* width: 900px;
    margin: 0 auto; */
+   background-color: #f9f9f9;
  }
 
  #main-content {

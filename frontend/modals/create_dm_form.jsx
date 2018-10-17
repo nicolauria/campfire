@@ -6,7 +6,7 @@ class CreateDmForm extends React.Component {
     super(props);
     this.state = {
       name: '',
-      description: '',
+      description: 'direct message',
       private: true,
       direct_message: true,
       search: '',

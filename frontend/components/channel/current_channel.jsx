@@ -45,6 +45,7 @@ class CurrentChannel extends React.Component {
 
     return(
       <div className="message-box">
+      <img className="workspace-default-image" src="http://funkyimg.com/i/2Maio.jpg"/>
         <h1>{channelName}</h1>
         <span className="channel-description">{this.props.channel.description}</span>
         <hr />

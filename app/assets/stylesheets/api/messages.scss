@@ -15,10 +15,15 @@
 
 }
 .message-box h1 {
+  display: inline-block;
   margin-top: 0;
   padding-top: 8px;
-  margin-left: 35px;
+  margin-left: 15px;
   margin-bottom: 0px;
+}
+
+.channel-description {
+  // display: block;
 }
 
 .message-box ul {

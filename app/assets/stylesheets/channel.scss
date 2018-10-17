@@ -13,11 +13,47 @@
 }
 
 .channel-description {
-  margin-left: 37px;
+  margin-left: 81px;
   margin-bottom: 6px;
-  display: inline-block;
+  display: block;
 }
 
 .direct-message-list ul {
   padding-left: 25px;
+}
+
+.no-channels-yet {
+  position: absolute;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 125px;
+  left: 40%;
+  text-align: center;
+}
+
+.no-channels-yet h1 {
+  margin-top: 0;
+}
+
+.no-channels-yet p {
+  font-size: 18px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid orange;
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+  background: #ff9233;
+}
+
+.no-channels-yet img {
+  height: 500px;
+}
+
+.workspace-default-image {
+  height: 50px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 20px;
 }
