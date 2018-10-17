@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom';
 class CurrentChannel extends React.Component {
 
   componentDidMount() {
-    // debugger
+    debugger
     const channelId = this.props.match.params.channelId;
     this.props.requestAllUsers().then(() => this.props.requestChannelMessages(channelId))
     .then(() => this.props.createChannelSubscription(channelId, this.props.receiveMessage));
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     const channelId = nextProps.match.params.channelId;
     if (this.props.match) {
       if (this.props.match.params.channelId !== channelId) {
