@@ -5,8 +5,14 @@ import DirectMessages from '../direct_messages/dm_list_container';
 class ChannelSidebar extends React.Component {
 
   componentDidMount() {
-    // debugger
-    this.props.requestChannels().then(() => this.props.requestAllUsers());
+    // this.props.requestChannels().then(() => this.props.requestAllUsers());
+
+    this.props.requestAllUsers().then(() => this.props.requestChannels())
+      .then((res) => {
+        // console.log(res.channels[0])
+        this.props.history.push(`/channels/${res.channels[0]}`)
+      })
+      // .then(() => this.props.requestChannelMessages(channelId)
   }
 
   // componentWillReceiveProps(nextProps) {

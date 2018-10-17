@@ -80,12 +80,19 @@ class CreateDmForm extends React.Component {
 
     let userMatchesDiv = null;
     let dmSearchResults = "dm-search-results-empty";
-
+    debugger
     if (this.state.userMatches.length > 0) {
       userMatchesDiv = this.state.userMatches.map(match => {
         return <p onClick={this.addUser(match)}>
           <img className="profile-image" src={match.photoUrl}/>
           {match.username}</p>;
+      });
+      dmSearchResults = "dm-search-results";
+    } else {
+      userMatchesDiv = this.props.users.map(user => {
+        return <p onClick={this.addUser(user)}>
+          <img className="profile-image" src={user.photoUrl}/>
+          {user.username}</p>;
       });
       dmSearchResults = "dm-search-results";
     }

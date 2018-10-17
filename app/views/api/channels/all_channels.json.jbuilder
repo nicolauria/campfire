@@ -5,7 +5,7 @@ json.array!(@channels) do |channel|
   json.private channel.private
   json.description channel.description
   json.direct_message channel.direct_message
-
+  # debugger
   # json.channels json.array!(channel.users) do |user|
   #   json.user user.username
   # end

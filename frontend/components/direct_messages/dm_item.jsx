@@ -13,6 +13,7 @@ class DmItem extends React.Component {
   }
 
   render() {
+    // debugger
     return(
       <div>
         # <Link onClick={this.handleSubmit}
