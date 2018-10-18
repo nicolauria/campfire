@@ -3,8 +3,15 @@ import MessageItem from '../message/message_item_container';
 import { createChannelSubscription } from '../../actions/channel_actions';
 import ChannelForm from './channel_form_container';
 import { Link } from 'react-router-dom';
+import NoChannelsYet from '../main_app/no_channels_yet_container';
 
 class CurrentChannel extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   loading: true
+    // }
+  }
 
   componentDidMount() {
     const channelId = this.props.match.params.channelId;
@@ -43,6 +50,11 @@ class CurrentChannel extends React.Component {
     if (this.props.messages.length === 0) {
       channelMessages = <div className="no-messages-here-yet">No messages here yet!</div>;
     }
+
+    // <div className="find-channel-search-box">
+    //   <input type="text" placeHolder="Search channels"
+    //     onClick={this.props.findChannelModal}
+    // </div>
 
     return(
       <div className="message-box">

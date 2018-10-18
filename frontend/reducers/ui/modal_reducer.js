@@ -1,7 +1,8 @@
 import { CREATE_CHANNEL_MODAL,
   CREATE_DM_MODAL,
   CLEAR_MODAL,
-  EDIT_PROFILE_MODAL } from '../../actions/modal_actions.js';
+  EDIT_PROFILE_MODAL,
+  FIND_CHANNEL_MODAL } from '../../actions/modal_actions.js';
 
 import { RECEIVE_CHANNEL } from '../../actions/channel_actions.js';
 
@@ -16,6 +17,8 @@ const ModalReducer = (state = null, action) => {
       return null;
     case EDIT_PROFILE_MODAL:
       return EDIT_PROFILE_MODAL;
+    case FIND_CHANNEL_MODAL:
+      return FIND_CHANNEL_MODAL;
     default:
       return state;
   }

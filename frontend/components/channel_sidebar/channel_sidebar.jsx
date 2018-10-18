@@ -1,16 +1,16 @@
 import React from 'react';
 import ChannelList from './channel_list_container';
 import DirectMessages from '../direct_messages/dm_list_container';
-import NoChannelsYet from '../main_app/no_channels_yet_container';
 
 class ChannelSidebar extends React.Component {
 
   componentDidMount() {
     this.props.requestAllUsers().then(() => this.props.requestChannels())
-      .then((res) => {
-        if (res.channels.length < 1) return <NoChannelsYet />;
-        this.props.history.push(`/channels/${res.channels[0].id}`)
+      .then(res => {
+        const channelId = res.channels[0].id;
+        this.props.requestChannelMessages(channelId)
       });
+
   }
 
   render() {

@@ -3,6 +3,8 @@ import CurrentChannel from './current_channel';
 import { requestChannelMessages, receiveMessage } from '../../actions/message_actions';
 import { createChannelSubscription } from '../../actions/channel_actions';
 import { requestAllUsers } from '../../actions/user_actions';
+import { withRouter } from 'react-router-dom';
+// import { findChannelModal}
 
 const mapStateToProps = (state, ownProps) => {
   const channelId = ownProps.match.params.channelId
@@ -22,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
   receiveMessage: message => dispatch(receiveMessage(message)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentChannel);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CurrentChannel));

@@ -17,7 +17,7 @@ class MainApp extends React.Component {
     return (<div className="main">
       <ChannelSidebar />
       <ModalContainer />
-      <Route path="/channels/:channelId" component={CurrentChannel}/>
+      <CurrentChannel />
     </div>)
   }
 

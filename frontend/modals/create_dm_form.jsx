@@ -17,6 +17,7 @@ class CreateDmForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleUrlChange = this.handleUrlChange.bind(this);
+    // this.allUserNames = this.allUserNames.bind(this);
   }
 
   update(field) {
@@ -49,10 +50,20 @@ class CreateDmForm extends React.Component {
     return this.props.history.push(`/channels/${response.channel.id}`)
   }
 
+  // allUserNames() {
+  //   let userNames = [];
+  //   this.state.addedUsers.forEach(user => {
+  //     userNames.push(user.username);
+  //   })
+  //   return allUserNames.join(', ');
+  // }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.addedUsers.length > 0) {
+      debugger
       this.state.name = this.state.addedUsers[0].username
+      this.state.description = "direct message";
       this.props.createChannel(this.state).then(response =>
         this.handleUrlChange(response)).then(() => this.props.clearModal());
     }
@@ -80,7 +91,6 @@ class CreateDmForm extends React.Component {
 
     let userMatchesDiv = null;
     let dmSearchResults = "dm-search-results-empty";
-    debugger
     if (this.state.userMatches.length > 0) {
       userMatchesDiv = this.state.userMatches.map(match => {
         return <p onClick={this.addUser(match)}>
