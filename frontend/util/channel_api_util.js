@@ -42,3 +42,11 @@ export const removeChannel = id => {
     url: `/api/channels/${id}`
   })
 };
+
+export const createSubscription = channelId => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/subscriptions',
+    data: {channelId: channelId}
+  })
+}

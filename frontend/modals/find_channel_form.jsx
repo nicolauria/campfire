@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { requestAllChannels } from '../actions/channel_actions'
+import { requestAllChannels, createBackendSubscription } from '../actions/channel_actions'
 
 const mapStateToProps = ({ entities: { channels, allChannels }}) => ({
   channels: Object.values(channels),
@@ -9,7 +9,8 @@ const mapStateToProps = ({ entities: { channels, allChannels }}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestAllChannels: () => dispatch(requestAllChannels())
+  requestAllChannels: () => dispatch(requestAllChannels()),
+  createBackendSubscription: channelId => dispatch(createBackendSubscription(channelId))
 });
 
 class FindChannelForm extends React.Component {
@@ -19,7 +20,7 @@ class FindChannelForm extends React.Component {
     this.state = {};
     this.state.currentSearch = '';
     this.handleInput = this.handleInput.bind(this);
-    this.createChannelSubscription = this.createChannelSubscription.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleInput(e) {
@@ -30,13 +31,13 @@ class FindChannelForm extends React.Component {
     this.setState({currentSearch: ''});
   }
 
-  createChannelSubscription(channelId) {
-    // debugger
-    $.ajax({
-      method: 'POST',
-      url: '/api/subscriptions',
-      data: {channelId: channelId}
-    })
+  handleClick(channel) {
+    return () => {
+      const searchBar = document.getElementsByClassName("channel-form-search-results")[0]
+      searchBar.classList.remove("channel-form-search-results");
+      searchBar.classList.add("no-channel-form-search-results");
+      this.props.createBackendSubscription(channel.id);
+    }
   }
 
   channelResults() {
@@ -48,7 +49,7 @@ class FindChannelForm extends React.Component {
         return <div className="channel-form-search-result">
                 <img src="http://funkyimg.com/i/2Ma9k.png"/>
                 <Link to={`/channels/${channel.id}`}
-                onClick={this.createChannelSubscription(channel.id)}>
+                onClick={this.handleClick(channel)}>
                 {channel.name}</Link><br /></div>;
       })
     }

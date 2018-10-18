@@ -60,6 +60,12 @@ export const deleteChannel = id => dispatch => {
     .then(channel => dispatch(removeChannel(channel)))
 };
 
+export const createBackendSubscription = channelId => dispatch => {
+  return ChannelAPIUtil.createSubscription(channelId)
+    .then(channel => dispatch(receiveChannel(channel)))
+}
+
+// this is the frontend websockets connection
 export const createChannelSubscription = (channelId, receiveMessage) => dispatch => {
   App[channelId] = App.cable.subscriptions.create(
     {channel: "MainChannel", id: channelId},
