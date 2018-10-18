@@ -5,6 +5,7 @@ class DmItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.removeChannel = this.removeChannel.bind(this);
   }
 
   handleSubmit() {
@@ -12,12 +13,18 @@ class DmItem extends React.Component {
     this.props.selectChannel(this.props.dm);
   }
 
+  removeChannel() {
+    this.props.deleteDm(this.props.dm.id)
+  }
+
   render() {
     return(
-      <div>
-        # <Link onClick={this.handleSubmit}
+      <div className="dm-item-container">
+        <Link onClick={this.handleSubmit}
               to={`/channels/${this.props.dm.id}`}>
-              {this.props.dm.name}</Link><br />
+              # {this.props.dm.name}</Link>
+              <div onClick={this.removeChannel}
+                className="delete-dm">x</div><br />
       </div>
     )
   }

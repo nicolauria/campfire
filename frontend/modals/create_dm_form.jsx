@@ -61,7 +61,6 @@ class CreateDmForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.addedUsers.length > 0) {
-      debugger
       this.state.name = this.state.addedUsers[0].username
       this.state.description = "direct message";
       this.props.createChannel(this.state).then(response =>

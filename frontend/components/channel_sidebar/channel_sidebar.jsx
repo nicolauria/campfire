@@ -7,8 +7,9 @@ class ChannelSidebar extends React.Component {
   componentDidMount() {
     this.props.requestAllUsers().then(() => this.props.requestChannels())
       .then(res => {
-        const channelId = res.channels[0].id;
-        this.props.requestChannelMessages(channelId)
+        // const channelId = res.channels[0].id;
+        // this.props.requestChannelMessages(channelId)
+        this.props.history.push(`/channels/${res.channels[0].id}`)
       });
 
   }

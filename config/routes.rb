@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :channels, only: [:index, :create, :destroy, :show] do
       resources :messages, only: [:index]
     end
+    resources :subscriptions, only: [:create]
   end
 
   mount ActionCable.server, at: '/cable'

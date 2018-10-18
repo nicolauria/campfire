@@ -5,6 +5,14 @@ export const fetchChannels = () => (
   })
 );
 
+export const fetchAllChannels = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/channels',
+    data: {allChannels: true}
+  })
+)
+
 export const fetchChannel = id => (
   $.ajax({
     method: 'GET',
@@ -28,9 +36,9 @@ export const updateChannel = channel => (
   })
 );
 
-export const removeChannel = id => (
-  $.ajax({
+export const removeChannel = id => {
+  return $.ajax({
     method: 'DELETE',
-    url: `api/channels/${id}`
+    url: `/api/channels/${id}`
   })
-);
+};

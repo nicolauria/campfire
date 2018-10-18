@@ -1,6 +1,10 @@
 class Api::ChannelsController < ApplicationController
   def index
-    @channels = current_user.channels.includes(:users)
+    if params["allChannels"] == "true"
+      @channels = Channel.all
+    else
+      @channels = current_user.channels.includes(:users)
+    end
     render "api/channels/all_channels"
   end
 
@@ -26,10 +30,16 @@ class Api::ChannelsController < ApplicationController
   def update
     @channel = Channel.find(params[:id])
     if @channel.update(channel_params)
-      render json: "api/channels/show"
+      render "api/channels/show"
     else
       render json: @channel.errors.full_messages
     end
+  end
+
+  def destroy
+    @channel = Channel.find(params[:id])
+    @channel.destroy
+    render "api/channels/show"
   end
 
   private

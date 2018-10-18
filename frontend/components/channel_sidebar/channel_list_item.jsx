@@ -15,9 +15,9 @@ class ChannelListItem extends React.Component {
   render() {
     return(
       <div>
-        # <Link onClick={this.handleSubmit}
+        <Link onClick={this.handleSubmit}
               to={`/channels/${this.props.channel.id}`}>
-              {this.props.channel.name}</Link><br />
+              # {this.props.channel.name}</Link><br />
       </div>
     )
   }

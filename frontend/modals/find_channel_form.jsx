@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { requestAllChannels } from '../actions/channel_actions'
 
-const mapStateToProps = ({ entities: { channels }}) => ({
-  channels: Object.values(channels)
+const mapStateToProps = ({ entities: { channels, allChannels }}) => ({
+  channels: Object.values(channels),
+  allChannels: Object.values(allChannels)
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  requestAllChannels: () => dispatch(requestAllChannels())
 });
 
 class FindChannelForm extends React.Component {
@@ -17,6 +19,7 @@ class FindChannelForm extends React.Component {
     this.state = {};
     this.state.currentSearch = '';
     this.handleInput = this.handleInput.bind(this);
+    this.createChannelSubscription = this.createChannelSubscription.bind(this);
   }
 
   handleInput(e) {
@@ -27,18 +30,32 @@ class FindChannelForm extends React.Component {
     this.setState({currentSearch: ''});
   }
 
+  createChannelSubscription(channelId) {
+    // debugger
+    $.ajax({
+      method: 'POST',
+      url: '/api/subscriptions',
+      data: {channelId: channelId}
+    })
+  }
+
   channelResults() {
     if (this.state.currentSearch.length > 1) {
-      const channelResults = this.props.channels.filter(channel => {
+      const channelResults = this.props.allChannels.filter(channel => {
         return channel.name.includes(this.state.currentSearch);
       })
       return channelResults.map(channel => {
         return <div className="channel-form-search-result">
                 <img src="http://funkyimg.com/i/2Ma9k.png"/>
-                <Link to={`/channels/${channel.id}`}>
+                <Link to={`/channels/${channel.id}`}
+                onClick={this.createChannelSubscription(channel.id)}>
                 {channel.name}</Link><br /></div>;
       })
     }
+  }
+
+  componentDidMount() {
+    this.props.requestAllChannels();
   }
 
   render() {

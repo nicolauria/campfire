@@ -3,6 +3,7 @@ import { receiveMessage } from './message_actions';
 import { receiveErrors } from './session_actions';
 
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
+export const RECEIVE_ALL_CHANNELS = 'RECEIVE_ALL_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 export const REMOVE_CHANNEL = 'REMOVE_CHANNEL';
 
@@ -11,20 +12,32 @@ const receiveChannels = channels => ({
   channels
 });
 
+const receiveAllChannels = channels => ({
+  type: RECEIVE_ALL_CHANNELS,
+  channels
+});
+
 const receiveChannel = channel => {
   return { type: RECEIVE_CHANNEL,
   channel }
 };
 
-const removeChannel = channel => ({
-  type: REMOVE_CHANNEL,
-  channel
-})
+const removeChannel = channel => {
+  return {
+    type: REMOVE_CHANNEL,
+    channel
+  }
+}
 
 export const requestChannels = () => dispatch => {
   return ChannelAPIUtil.fetchChannels()
     .then(channels => dispatch(receiveChannels(channels)))
 };
+
+export const requestAllChannels = () => dispatch => {
+  return ChannelAPIUtil.fetchAllChannels()
+    .then(channels => dispatch(receiveAllChannels(channels)))
+}
 
 export const requestChannel = id => dispatch => (
   ChannelAPIUtil.fetchChannel()
@@ -42,10 +55,10 @@ export const updateChannel = channel => dispatch => (
     .then(channel => dispatch(receiveChannel(channel)))
 );
 
-export const deleteChannel = id => dispatch => (
-  ChannelAPIUtil.removeChannel(id)
+export const deleteChannel = id => dispatch => {
+  return ChannelAPIUtil.removeChannel(id)
     .then(channel => dispatch(removeChannel(channel)))
-);
+};
 
 export const createChannelSubscription = (channelId, receiveMessage) => dispatch => {
   App[channelId] = App.cable.subscriptions.create(
