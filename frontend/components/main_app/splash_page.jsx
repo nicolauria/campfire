@@ -20,12 +20,13 @@ class SplashPage extends React.Component {
         </div>
       </header>
         <div className="splash-page-container">
-          <img src="http://funkyimg.com/i/2Mbtn.png"/>
-          <h1>Conversation<br />Starts Here</h1>
-          <p>Ignite your conversations with campfire, the mesaging app
-           for work, fun and everything in between.</p>
-           <Link className="session-submit" to="/login">Login</Link>
-           <Link className="session-submit" to="/signup">Sign Up</Link>
+          <img src="http://funkyimg.com/i/2M5GP.png"/>
+          <div className="sp-text-content">
+            <h1>Conversation<br />Starts Here</h1>
+            <p>A messaging app for work, fun and everything else.</p>
+            <Link className="session-submit" to="/login">Login</Link>
+            <Link className="session-submit" to="/signup">Sign Up</Link>
+          </div>
         </div>
       </div>
     )

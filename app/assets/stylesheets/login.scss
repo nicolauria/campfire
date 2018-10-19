@@ -49,7 +49,7 @@ input[type=text], input[type=email], input[type=password] {
 
 .session-submit,
 #session-submit {
-  background: #008952;
+  background: #ef8006;
   display: block;
   margin: 0 auto;
   margin-top: 5px;
@@ -64,7 +64,7 @@ input[type=text], input[type=email], input[type=password] {
 
 .session-submit:hover,
 #session-submit:hover {
-  background: #34a075;
+  background: #fbb138;
 }
 
 .form-errors {
@@ -96,14 +96,15 @@ input[type=text], input[type=email], input[type=password] {
 }
 
 .splash-page-container img {
-  height: 550px;
+  height: 400px;
   float: left;
+  margin-left: 50px;
 }
 
 .splash-page-container h1 {
   display: inline-block;
   font-size: 70px;
-  // margin-left: 20px;
+  margin-top: 25px;
   margin-bottom: 0px;
 }
 
@@ -114,11 +115,18 @@ input[type=text], input[type=email], input[type=password] {
 }
 
 .splash-page-container .session-submit {
-  margin-left: 25px;
+  background: #ef8006;
+  margin-right: 25px;
   float: left;
   width: 175px;
   height: auto;
   padding: 15px;
   text-align: center;
   text-decoration: none;
+}
+
+.sp-text-content {
+  // margin-left: 100px;
+  float: right;
+  margin-right: 175px;
 }

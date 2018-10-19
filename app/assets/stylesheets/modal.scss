@@ -28,11 +28,15 @@
 }
 
 .create-channel-form,
-.creat-dm-form {
+.create-dm-form {
   width: 500px;
   margin: 0 auto;
   text-align: center;
   margin-top: 85px;
+}
+
+.dm-form {
+  margin-top: 25px;
 }
 
 .create-channel-form button,
@@ -126,7 +130,8 @@
   top: 100px;
   right: 308px;
   width: 270px;
-  height: 200px;
+  height: auto;
+  max-height: 200px;
   overflow: scroll;
   padding: 25px;
   border-radius: 5px;

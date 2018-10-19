@@ -62,9 +62,11 @@ class CurrentChannel extends React.Component {
           <span className="channel-description">{this.props.channel.description}</span>
           <FindChannelForm />
         </div>
-        <ul>
-          {channelMessages}
-        </ul>
+        <div className="outer-wrapper">
+          <ul>
+            {channelMessages}
+          </ul>
+        </div>
         <ChannelForm channel={this.props.channel}/>
       </div>
     )

@@ -13,10 +13,10 @@ Message.destroy_all
 
 # ----------
 
-channel1 = Channel.create(name: 'channel1', private: false, description: 'this is channel 1',
+hiking = Channel.create(name: 'Hiking', private: false, description: 'a channel about hiking',
   direct_message: false)
 
-channel2 = Channel.create(name: 'channel2', private: false, description: 'this is channel 2',
+swimming = Channel.create(name: 'Swimming', private: false, description: 'this is channel 2',
   direct_message: false)
 
 channel3 = Channel.create(name: 'channel3', private: false, description: 'this is channel 4',

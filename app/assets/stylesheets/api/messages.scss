@@ -32,6 +32,14 @@
   margin-top: 25px;
 }
 
+.outer-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: scroll;
+  max-height: 600px;
+  margin-top: 35px;
+}
+
 .message-box li {
   margin-bottom: 10px;
   font-family: sans-serif;
