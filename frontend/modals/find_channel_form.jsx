@@ -84,11 +84,11 @@ class FindChannelForm extends React.Component {
   render() {
     let channelFormSearchResults = "no-channel-form-search-results"
 
+    // onBlur={this.searchFormResultsOff}
     return(
       <div>
         <input className="channel-search" type="text" placeholder="Search channels"
-          onChange={this.handleInput} onFocus={this.searchFormResultsOn}
-          onBlur={this.searchFormResultsOff}/>
+          onChange={this.handleInput} onFocus={this.searchFormResultsOn}/>
         <div className={channelFormSearchResults}>
           {this.channelResults()}
         </div>
