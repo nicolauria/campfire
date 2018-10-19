@@ -22,7 +22,7 @@ export const createChannelSubscription = (channelId, receiveMessage) => dispatch
   })
  ```
  
- On the backend, a stream is created. All messages sent over a channel are immediately received by other users subscribed to the channel.
+ On the backend, a stream is created. All messages sent over a channel are immediately received by other subscribed users.
  
  ```
  #app/channels/main_channel.rb
