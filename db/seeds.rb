@@ -13,54 +13,59 @@ Message.destroy_all
 
 # ----------
 
-hiking = Channel.create(name: 'Hiking', private: false, description: 'a channel about hiking',
+yoda = User.create(username: 'Yoda', email: 'yoda@aol.com', password: 'secret')
+obi-wan = User.create(username: 'Obi-Wan', email: 'obi-wan@aol.com', password: 'secret')
+han-solo = User.create(username: 'Han Solo', email: 'han-solo@aol.com', password: 'secret')
+chewbacca = User.create(username: 'Chewbacca', email: 'chewbacca@aol.com', password: 'secret')
+anakin = User.create(username: 'Anakin', email: 'anakin@aol.com', password: 'secret')
+r2-d2 = User.create(username: 'R2D2', email: 'r2d2@aol.com', password: 'secret')
+c3po = User.create(username: 'C3PO', email: 'c3po@aol.com', password: 'secret')
+qui-gon = User.create(username: 'Qui-Gon', email: 'qui-gon@aol.com', password: 'secret')
+darth-maul = User.create(username: 'Darth Maul', email: 'darth-maul@aol.com', password: 'secret')
+darth-vader = User.create(username: 'Darh Vader', email: 'darth-vader@aol.com', password: 'secret')
+ewok = User.create(username: 'Ewok', email: 'ewok@aol.com', password: 'secret')
+
+
+naboo = Channel.create(name: "naboo", private: false,
+  description: "An idyllic world close to the border of the Outer Rim Territories.",
   direct_message: false)
 
-swimming = Channel.create(name: 'Swimming', private: false, description: 'this is channel 2',
+naboo = Channel.create(name: "Tatooine", private: false,
+  description: "A harsh desert world orbiting twin suns in the galaxy’s Outer Rim.",
   direct_message: false)
 
-channel3 = Channel.create(name: 'channel3', private: false, description: 'this is channel 4',
-  direct_message: true)
+naboo = Channel.create(name: "Jedi Temple", private: false,
+  description: "The Jedi Temple is the home of the Jedi Order on Coruscant.",
+  direct_message: false)
 
-channel4 = Channel.create(name: 'channel4', private: false, description: 'this is channel 5',
-  direct_message: true)
+naboo = Channel.create(name: "Millennium Falcon", private: false,
+  description: "The famous starship of Han Solo.",
+  direct_message: false)
 
-# ----------
+naboo = Channel.create(name: "Endoor", private: false,
+  description: "The lush, forest home of the Ewok species.",
+  direct_message: false)
 
-user1 = User.create(username: 'Will', email: 'will@aol.com', password: 'secret')
+naboo = Channel.create(name: "Death Star", private: false,
+  description: "The Empire’s ultimate weapon: a moon-sized space station.",
+  direct_message: false)
 
-Subscription.create(user_id: user1.id, channel_id: channel1.id)
-Subscription.create(user_id: user1.id, channel_id: channel2.id)
+naboo = Channel.create(name: "Death Star", private: false,
+  description: "The Empire’s ultimate weapon: a moon-sized space station.",
+  direct_message: false)
 
-Message.create(body: 'this is message 1', user_id: user1.id, channel_id: channel1.id)
-Message.create(body: 'this is message 2', user_id: user1.id, channel_id: channel1.id)
+naboo = Channel.create(name: "Cloud City", private: false,
+  description: "A floating metropolis of sophisticated beauty and political freedom.",
+  direct_message: false)
 
-Subscription.create(user_id: user1.id, channel_id: channel3.id)
-Subscription.create(user_id: user1.id, channel_id: channel4.id)
+naboo = Channel.create(name: "Corellia", private: false,
+  description: "The first planet from the star Corell.",
+  direct_message: false)
 
-Message.create(body: 'this is message 3', user_id: user1.id, channel_id: channel3.id)
-Message.create(body: 'this is message 4', user_id: user1.id, channel_id: channel3.id)
+naboo = Channel.create(name: "Corellia", private: false,
+  description: "The first planet from the star Corell.",
+  direct_message: false)
 
-# ----------
-
-user2 = User.create(username: 'Alex', email: 'alex@aol.com', password: 'secret')
-
-Subscription.create(user_id: user2.id, channel_id: channel1.id)
-Subscription.create(user_id: user2.id, channel_id: channel2.id)
-
-Message.create(body: 'this is message 5', user_id: user2.id, channel_id: channel1.id)
-Message.create(body: 'this is message 6', user_id: user2.id, channel_id: channel1.id)
-
-Subscription.create(user_id: user2.id, channel_id: channel3.id)
-Subscription.create(user_id: user2.id, channel_id: channel4.id)
-
-Message.create(body: 'this is message 7', user_id: user2.id, channel_id: channel3.id)
-Message.create(body: 'this is message 8', user_id: user2.id, channel_id: channel3.id)
-
-# ----------
-
-user3 = User.create(username: 'Guest1', email: 'guest1@aol.com', password: 'secret')
-user4 = User.create(username: 'Guest2', email: 'guest2@aol.com', password: 'secret')
-user5 = User.create(username: 'Guest3', email: 'guest3@aol.com', password: 'secret')
-user6 = User.create(username: 'Guest4', email: 'guest4@aol.com', password: 'secret')
-user7 = User.create(username: 'Guest5', email: 'guest5@aol.com', password: 'secret')
+naboo = Channel.create(name: "Jaku", private: false,
+  description: "A frontier dessert world.",
+  direct_message: false)
