@@ -90,6 +90,8 @@ class FindChannelForm extends React.Component {
         <input className="channel-search" type="text" placeholder="Search channels"
           onChange={this.handleInput} onFocus={this.searchFormResultsOn}/>
         <div className={channelFormSearchResults}>
+          <div className="close-channels-search-box"
+            onClick={this.searchFormResultsOff}>X</div>
           {this.channelResults()}
         </div>
       </div>

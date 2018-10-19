@@ -163,3 +163,15 @@
   width: 30px;
   margin-right: 12px;
 }
+
+.close-channels-search-box {
+  cursor: pointer;
+  font-size: 12px;
+  position: fixed;
+  top: 105px;
+  right: 387px;
+  color: #888;
+  border-radius: 50%;
+  border: 1px solid #888;
+  padding: 0 5px;
+}
