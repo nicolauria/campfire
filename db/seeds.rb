@@ -14,15 +14,15 @@ Message.destroy_all
 # ----------
 
 yoda = User.create(username: 'Yoda', email: 'yoda@aol.com', password: 'secret')
-obi-wan = User.create(username: 'Obi-Wan', email: 'obi-wan@aol.com', password: 'secret')
-han-solo = User.create(username: 'Han Solo', email: 'han-solo@aol.com', password: 'secret')
+obi_wan = User.create(username: 'Obi-Wan', email: 'obi-wan@aol.com', password: 'secret')
+han_solo = User.create(username: 'Han Solo', email: 'han-solo@aol.com', password: 'secret')
 chewbacca = User.create(username: 'Chewbacca', email: 'chewbacca@aol.com', password: 'secret')
 anakin = User.create(username: 'Anakin', email: 'anakin@aol.com', password: 'secret')
-r2-d2 = User.create(username: 'R2D2', email: 'r2d2@aol.com', password: 'secret')
+r2_d2 = User.create(username: 'R2D2', email: 'r2d2@aol.com', password: 'secret')
 c3po = User.create(username: 'C3PO', email: 'c3po@aol.com', password: 'secret')
-qui-gon = User.create(username: 'Qui-Gon', email: 'qui-gon@aol.com', password: 'secret')
-darth-maul = User.create(username: 'Darth Maul', email: 'darth-maul@aol.com', password: 'secret')
-darth-vader = User.create(username: 'Darh Vader', email: 'darth-vader@aol.com', password: 'secret')
+qui_gon = User.create(username: 'Qui-Gon', email: 'qui-gon@aol.com', password: 'secret')
+darth_maul = User.create(username: 'Darth Maul', email: 'darth-maul@aol.com', password: 'secret')
+darth_vader = User.create(username: 'Darh Vader', email: 'darth-vader@aol.com', password: 'secret')
 ewok = User.create(username: 'Ewok', email: 'ewok@aol.com', password: 'secret')
 
 
