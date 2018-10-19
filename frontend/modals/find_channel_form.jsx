@@ -21,6 +21,8 @@ class FindChannelForm extends React.Component {
     this.state.currentSearch = '';
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.searchFormResultsOn = this.searchFormResultsOn.bind(this);
+    this.searchFormResultsOff = this.searchFormResultsOff.bind(this);
   }
 
   handleInput(e) {
@@ -52,6 +54,14 @@ class FindChannelForm extends React.Component {
                 onClick={this.handleClick(channel)}>
                 {channel.name}</Link><br /></div>;
       })
+    } else {
+      return this.props.allChannels.map(channel => {
+        return <div className="channel-form-search-result">
+                <img src="http://funkyimg.com/i/2Ma9k.png"/>
+                <Link to={`/channels/${channel.id}`}
+                onClick={this.handleClick(channel)}>
+                {channel.name}</Link><br /></div>;
+      })
     }
   }
 
@@ -59,16 +69,26 @@ class FindChannelForm extends React.Component {
     this.props.requestAllChannels();
   }
 
+  searchFormResultsOn() {
+    const searchBar = document.getElementsByClassName("no-channel-form-search-results")[0]
+    searchBar.classList.remove("no-channel-form-search-results");
+    searchBar.classList.add("channel-form-search-results");
+  }
+
+  searchFormResultsOff() {
+    const searchBar = document.getElementsByClassName("channel-form-search-results")[0]
+    searchBar.classList.remove("channel-form-search-results");
+    searchBar.classList.add("no-channel-form-search-results");
+  }
+
   render() {
-    let channelFormSearchResults = "channel-form-search-results"
-    if (this.state.currentSearch.length < 2) {
-      channelFormSearchResults = "no-channel-form-search-results"
-    }
+    let channelFormSearchResults = "no-channel-form-search-results"
 
     return(
       <div>
         <input className="channel-search" type="text" placeholder="Search channels"
-          onChange={this.handleInput}/>
+          onChange={this.handleInput} onFocus={this.searchFormResultsOn}
+          onBlur={this.searchFormResultsOff}/>
         <div className={channelFormSearchResults}>
           {this.channelResults()}
         </div>
