@@ -24,6 +24,7 @@ qui_gon = User.create(username: 'Qui-Gon', email: 'qui-gon@aol.com', password: '
 darth_maul = User.create(username: 'Darth Maul', email: 'darth-maul@aol.com', password: 'secret')
 darth_vader = User.create(username: 'Darh Vader', email: 'darth-vader@aol.com', password: 'secret')
 ewok = User.create(username: 'Ewok', email: 'ewok@aol.com', password: 'secret')
+luke = User.create(username: 'Luke', email: 'luke@aol.com', password: 'secret')
 
 
 naboo = Channel.create(name: "naboo", private: false,

@@ -53,7 +53,7 @@ class SessionForm extends React.Component {
 
   guestLogin(e) {
     e.preventDefault();
-    const guestUsername = 'Will'.split('');
+    const guestUsername = 'Luke'.split('');
     const guestPassword = 'secret'.split('');
     this.setState({username: '', password: ''}, () =>
       this.guestLoginHelper(guestUsername, guestPassword)
