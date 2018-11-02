@@ -2,6 +2,8 @@
 
 Campfire is a Slack clone built using a Rails backend and React/Redux frontend framework.
 
+![Alt text](app/assets/images/campfire-logo.png?raw=true "Title")
+
 ## Live Chat
 
 Campfire utilizes Action Cable Web Sockets. When a user selects a channel, a subscription for the channel is created on the frotentd. All messages sent over that channel are immediately received by other users subscribed to the channel.
