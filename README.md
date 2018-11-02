@@ -3,6 +3,8 @@
 Campfire is a Slack clone built using a Rails backend and React/Redux frontend framework.
 
 ![Alt text](app/assets/images/campfire-homescreen.png?s=50)
+![Alt text](app/assets/images/campfire-chat.png?s=50)
+![Alt text](app/assets/images/campfire-dm.png?s=50)
 
 ## Live Chat
 
