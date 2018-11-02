@@ -1,6 +1,7 @@
 # README
 
-Campfire is a Slack clone built using a Rails backend and React/Redux frontend framework.
+Campfire is a Slack clone built with a Rails backend and React/Redux frontend: [https://campfire-chat.herokuapp.com](https://campfire-chat.herokuapp.com)
+
 
 <kbd>![Alt text](app/assets/images/campfire-homescreen.png?s=50)</kbd>
 <kbd>![Alt text](app/assets/images/campfire-chat.png?s=50)</kbd>
