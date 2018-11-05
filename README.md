@@ -23,9 +23,9 @@ export const createChannelSubscription = (channelId, receiveMessage) => dispatch
       }
   })
  ```
- 
+
  On the backend, a stream is created. All messages sent over a channel are immediately received by other subscribed users.
- 
+
  ```
  #app/channels/main_channel.rb
  def subscribed
@@ -48,4 +48,3 @@ All data is stored on a Postgresql database. Images are stored on AWS servers us
 * Ability to upload gifs
 * More seed data
 * Ability to edit messages
- 
