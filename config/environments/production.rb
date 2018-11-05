@@ -95,6 +95,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # action cable settings for heroku
-  config.web_socket_server_url = "wss://patter-app.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = ['https://patter-app.herokuapp.com', 'http://patter-app.herokuapp.com']
+  config.web_socket_server_url = "wss://campfire-chat.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://campfire-chat.herokuapp.com', 'http://campfire-chat.herokuapp.com']
 end
