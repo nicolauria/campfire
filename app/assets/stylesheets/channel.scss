@@ -62,12 +62,15 @@
 .channel-header {
   position: relative;
   border: 1px solid lightgrey;
+  justify-content: space-between;
 }
 
 .channel-search {
-  position: absolute;
-  right: 300px;
-  top: 16px;
+  // position: absolute;
+  // right: 300px;
+  // top: 16px;
+  margin-top: 20px;
+  margin-right: 55px;
 }
 
 .dm-item-container {
@@ -118,4 +121,77 @@
   width: 100%;
   display: inline-block;
   padding-left: 30px;
+}
+
+// New CSS
+
+.outer-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.channel-messages {
+  width: 100%;
+  // min-height: calc(100% - 64px);
+  overflow-y: auto;
+  height: 75vh;
+}
+
+.message-container {
+  width: 100%;
+}
+
+.user-list-sidebar {
+  // height: 100vh;
+  width: 275px; /* 0 width - change this with JavaScript */
+  top: 0; /* Stay at the top */
+  right: 0;
+  // background-color: #111; /* Black*/
+  border-left: 1px solid lightgrey;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 15px; /* Place content 60px from the top */
+  transition: 0.25s; /* 0.5 second transition effect to slide in the sidenav */
+  display: flex;
+  flex-direction: column;
+}
+
+.user-list-sidebar li {
+  margin-top: 4px;
+  margin-left: 10px;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% - 64px);
+}
+
+.channel-name-description {
+
+}
+
+.channel-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.info-button {
+  position: fixed;
+  right: 20px;
+  top: 48px;
+  cursor: pointer;
+}
+
+.channel-users {
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
 }

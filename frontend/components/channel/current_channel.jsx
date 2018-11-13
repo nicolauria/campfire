@@ -9,9 +9,10 @@ import FindChannelForm from '../../modals/find_channel_form';
 class CurrentChannel extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   loading: true
-    // }
+    this.state = {
+      toggled: true
+    }
+    this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,18 @@ class CurrentChannel extends React.Component {
         this.props.requestChannelMessages(channelId)
           .then(() => this.props.createChannelSubscription(channelId, this.props.receiveMessage));
       }
+    }
+  }
+
+  toggleSidebar() {
+    debugger
+    let channelSidebar = document.getElementById("user-list-sidebar");
+    if (this.state.toggled === true) {
+      channelSidebar.style.width = "0px";
+      this.setState({toggled: false});
+    } else {
+      channelSidebar.style.width = "275px";
+      this.setState({toggled: true});
     }
   }
 
@@ -52,22 +65,33 @@ class CurrentChannel extends React.Component {
       channelMessages = <div className="no-messages-here-yet">No messages here yet!</div>;
     }
 
-
+    let channelUsers = this.props.channel.users.map(user => {
+      return <li><img className="profile-image" src={user.photoUrl}/>{user.username}</li>
+    });
 
     return(
       <div className="message-box">
         <div className="channel-header">
           <img className="workspace-default-image" src="http://funkyimg.com/i/2Maio.jpg"/>
-          <h1>{channelName}</h1>
-          <span className="channel-description">{this.props.channel.description}</span>
+          <span className="channel-name-description">
+            <h1>{channelName}</h1>
+            <span className="channel-description">{this.props.channel.description}</span>
+          </span>
           <FindChannelForm />
+          <img className="info-button" src="http://funkyimg.com/i/2N5Qb.png" onClick={this.toggleSidebar}/>
         </div>
         <div className="outer-wrapper">
-          <ul>
-            {channelMessages}
-          </ul>
+          <div className="message-container">
+            <ul className="channel-messages">
+              {channelMessages}
+            </ul>
+            <ChannelForm channel={this.props.channel}/>
+          </div>
+          <div id="user-list-sidebar" className="user-list-sidebar">
+            <span className="channel-users">Channel Users</span>
+            {channelUsers}
+          </div>
         </div>
-        <ChannelForm channel={this.props.channel}/>
       </div>
     )
   }

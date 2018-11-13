@@ -5,6 +5,11 @@ json.array!(@channels) do |channel|
   json.description channel.description
   json.direct_message channel.direct_message
   json.users (channel.users) do |user|
-    json.username user.username
+    json.extract! user, :id, :username, :email
+    if user.photo.attached?
+      json.photoUrl url_for(user.photo)
+    else
+      json.photoUrl "http://funkyimg.com/i/2Ma9k.png"
+    end
   end
 end
