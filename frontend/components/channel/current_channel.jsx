@@ -65,9 +65,13 @@ class CurrentChannel extends React.Component {
       channelMessages = <div className="no-messages-here-yet">No messages here yet!</div>;
     }
 
-    let channelUsers = this.props.channel.users.map(user => {
-      return <li><img className="profile-image" src={user.photoUrl}/>{user.username}</li>
-    });
+    let channelUsers = "";
+    if (this.props.channel.users) {
+      channelUsers = this.props.channel.users.map(user => {
+        return <li><img className="profile-image" src={user.photoUrl}/>{user.username}</li>
+      });
+    }
+
 
     return(
       <div className="message-box">
