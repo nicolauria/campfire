@@ -25,7 +25,7 @@ class SplashPage extends React.Component {
             <h1>Conversation<br />Starts Here</h1>
             <p>A messaging app for work, fun and everything else.</p>
             <Link className="session-submit" to="/login">Login</Link>
-            <Link className="session-submit" to="/signup">Sign Up</Link>
+            <Link className="session-submit" to="/login">Demo Login</Link>
           </div>
         </div>
       </div>

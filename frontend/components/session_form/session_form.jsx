@@ -116,7 +116,7 @@ class SessionForm extends React.Component {
     let formInstructions = "Enter a username, password and email:"
     let loginAsGuest = null;
     if (this.props.formType === 'Login') {
-      loginAsGuest = <button onClick={this.guestLogin} className="session-submit">Login in As Guest</button>;
+      loginAsGuest = <button onClick={this.guestLogin} className="session-submit">Demo Login</button>;
       formInstructions = "Enter your username and password:"
     }
 
