@@ -65,6 +65,11 @@ export const createBackendSubscription = channelId => dispatch => {
     .then(channel => dispatch(receiveChannel(channel)))
 }
 
+function updateScroll() {
+  var element = document.getElementById("channel-messages");
+  element.scrollTop = element.scrollTop + 50;
+}
+
 // this is the frontend websockets connection
 export const createChannelSubscription = (channelId, receiveMessage) => dispatch => {
   App[channelId] = App.cable.subscriptions.create(
@@ -73,6 +78,7 @@ export const createChannelSubscription = (channelId, receiveMessage) => dispatch
       received: function(data) {
         const message = JSON.parse(data.message);
         receiveMessage(message);
+        updateScroll();
       },
       speak: function(message) {
         return this.perform('speak', { message });

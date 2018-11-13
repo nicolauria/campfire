@@ -126,9 +126,10 @@
 }
 
 .channel-form-search-results {
+  background: #fff;
   position: absolute;
   top: 100px;
-  right: 308px;
+  right: 50px;
   width: 270px;
   height: auto;
   max-height: 200px;
@@ -136,6 +137,7 @@
   padding: 25px;
   border-radius: 5px;
   box-shadow: 0 0 5px 2px lightgrey;
+  transition: 0.25s;
 }
 
 .no-channel-form-search-results {

@@ -82,7 +82,7 @@ class CurrentChannel extends React.Component {
         </div>
         <div className="outer-wrapper">
           <div className="message-container">
-            <ul className="channel-messages">
+            <ul className="channel-messages" id="channel-messages">
               {channelMessages}
             </ul>
             <ChannelForm channel={this.props.channel}/>

@@ -142,7 +142,7 @@
 }
 
 .user-list-sidebar {
-  // height: 100vh;
+  height: 85vh;
   width: 275px; /* 0 width - change this with JavaScript */
   top: 0; /* Stay at the top */
   right: 0;
@@ -153,11 +153,12 @@
   transition: 0.25s; /* 0.5 second transition effect to slide in the sidenav */
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .user-list-sidebar li {
   margin-top: 4px;
-  margin-left: 10px;
+  margin-left: 11px;
   list-style-type: none;
   display: flex;
   align-items: center;
