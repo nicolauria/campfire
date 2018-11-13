@@ -23,18 +23,18 @@ good_will_hunting = Channel.create(name: "Good Will Hunting", private: false,
   description: "Son of a bitch... He stole my line.",
   direct_message: false)
 
-pulp_fiction = Channel.create(name: "The Shawshank Redemption", private: false,
-  description: "Get busy living, or get busy dying.",
+the_departed = Channel.create(name: "The Big Lebowski", private: false,
+  description: "I'm the Dude, so that's what you call me.",
   direct_message: false)
 
-cloud_city = Channel.create(name: "Old School", private: false,
+old_school = Channel.create(name: "Old School", private: false,
   description: "We're going streaking!",
   direct_message: false)
 
-corellia = Channel.create(name: "Gladiator", private: false,
+gladiator = Channel.create(name: "Gladiator", private: false,
   description: "Brothers, what we do in life echoes in eternity.",
   direct_message: false)
 
-jaku = Channel.create(name: "The Last Samurai", private: false,
+the_last_samurai = Channel.create(name: "The Last Samurai", private: false,
   description: "A frontier dessert world.",
   direct_message: false)
