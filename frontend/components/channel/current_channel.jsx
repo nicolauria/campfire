@@ -10,7 +10,7 @@ class CurrentChannel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggled: true
+      toggled: true,
     }
     this.toggleSidebar = this.toggleSidebar.bind(this);
   }
@@ -26,6 +26,7 @@ class CurrentChannel extends React.Component {
     if (this.props.match) {
       if (this.props.match.params.channelId !== channelId) {
         // this.props.requestAllUsers().then(() =>
+        this.props.requestChannels();
         this.props.requestChannelMessages(channelId)
           .then(() => this.props.createChannelSubscription(channelId, this.props.receiveMessage));
       }
@@ -65,13 +66,12 @@ class CurrentChannel extends React.Component {
       channelMessages = <div className="no-messages-here-yet">No messages here yet!</div>;
     }
 
-    let channelUsers = "";
+    let channelUsers = ""
     if (this.props.channel.users) {
       channelUsers = this.props.channel.users.map(user => {
         return <li><img className="profile-image" src={user.photoUrl}/>{user.username}</li>
       });
     }
-
 
     return(
       <div className="message-box">
