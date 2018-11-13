@@ -60,6 +60,8 @@ class CreateChannelForm extends React.Component {
     return (
       <div className="create-channel-form">
       <h1>Create A New Channel</h1>
+      <p className="channel-instructions">Channels are where conversations live. They're best organized around a topic.
+       Pick a name and description that fits your channel.</p>
       {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
           <input type="text"
@@ -68,7 +70,7 @@ class CreateChannelForm extends React.Component {
             onChange={this.update('name')}/><br />
           <input type="text"
             value={this.state.description}
-            placeholder="description"
+            placeholder="Description"
             onChange={this.update('description')}/><br />
           <button className="session-submit">Create Channel</button>
         </form>

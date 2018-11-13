@@ -25,6 +25,9 @@
   padding: 0;
   border-radius: 50px;
   border: 0;
+  position: absolute;
+  top: 50px;
+  right: 275px;
 }
 
 .create-channel-form,
@@ -32,16 +35,17 @@
   width: 500px;
   margin: 0 auto;
   text-align: center;
-  margin-top: 85px;
+  margin-top: 185px;
 }
 
 .dm-form {
-  margin-top: 25px;
+  margin-top: 150px;
 }
 
 .create-channel-form button,
 .create-dm-form button {
   font-size: 18px;
+  margin-top: 15px;
 }
 
 .edit-profile-form {
@@ -193,4 +197,12 @@
   // background-color: rgba(0, 0, 0, .5);
   background-color: #51397e;
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+.channel-instructions {
+  margin-bottom: 28px;
+}
+
+.create-channel-form input {
+  width: 485px;
 }

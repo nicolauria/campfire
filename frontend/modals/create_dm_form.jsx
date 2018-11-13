@@ -109,6 +109,7 @@ class CreateDmForm extends React.Component {
     return (
       <div className="create-channel-form dm-form">
       <h1>Send a Direct Message</h1>
+      <p className="channel-instructions">Find the name of the person you want to chat with.</p>
         <form onSubmit={this.handleSubmit}>
           <input type="text"
             placeholder="Search users"
