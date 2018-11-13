@@ -1,77 +1,40 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 User.destroy_all
 Channel.destroy_all
 Subscription.destroy_all
 Message.destroy_all
 
-# ----------
-
-yoda = User.create(username: 'Yoda', email: 'yoda@aol.com', password: 'secret')
-obi_wan = User.create(username: 'Obi-Wan', email: 'obi-wan@aol.com', password: 'secret')
-han_solo = User.create(username: 'Han Solo', email: 'han-solo@aol.com', password: 'secret')
-chewbacca = User.create(username: 'Chewbacca', email: 'chewbacca@aol.com', password: 'secret')
-anakin = User.create(username: 'Anakin', email: 'anakin@aol.com', password: 'secret')
-r2_d2 = User.create(username: 'R2D2', email: 'r2d2@aol.com', password: 'secret')
-c3po = User.create(username: 'C3PO', email: 'c3po@aol.com', password: 'secret')
-qui_gon = User.create(username: 'Qui-Gon', email: 'qui-gon@aol.com', password: 'secret')
-darth_maul = User.create(username: 'Darth Maul', email: 'darth-maul@aol.com', password: 'secret')
-darth_vader = User.create(username: 'Darh Vader', email: 'darth-vader@aol.com', password: 'secret')
-ewok = User.create(username: 'Ewok', email: 'ewok@aol.com', password: 'secret')
-luke = User.create(username: 'Luke', email: 'luke@aol.com', password: 'secret')
-
-
-naboo = Channel.create(name: "Naboo", private: false,
-  description: "An idyllic world close to the border of the Outer Rim Territories.",
+general = Channel.create(name: "General", private: false,
+  description: "Words, once they are printed, have a life of their own.",
   direct_message: false)
 
-tatooine = Channel.create(name: "Tatooine", private: false,
-  description: "A harsh desert world orbiting twin suns in the galaxy’s Outer Rim.",
+anchorman = Channel.create(name: "Anchorman", private: false,
+  description: "The Legend of Ron Burgundy.",
   direct_message: false)
 
-jedi_temple = Channel.create(name: "Jedi Temple", private: false,
-  description: "The Jedi Temple is the home of the Jedi Order on Coruscant.",
+forest_gump = Channel.create(name: "Forest Gump", private: false,
+  description: "You never know what you're gona get.",
   direct_message: false)
 
-millenium_falcon = Channel.create(name: "Millennium Falcon", private: false,
-  description: "The famous starship of Han Solo.",
+up = Channel.create(name: "Up", private: false,
+  description: "South America. It's like America, but south.",
   direct_message: false)
 
-endoor = Channel.create(name: "Endoor", private: false,
-  description: "The lush, forest home of the Ewok species.",
+good_will_hunting = Channel.create(name: "Good Will Hunting", private: false,
+  description: "Son of a bitch... He stole my line.",
   direct_message: false)
 
-death_star = Channel.create(name: "Death Star", private: false,
-  description: "The Empire’s ultimate weapon: a moon-sized space station.",
+pulp_fiction = Channel.create(name: "The Shawshank Redemption", private: false,
+  description: "Get busy living, or get busy dying.",
   direct_message: false)
 
-cloud_city = Channel.create(name: "Cloud City", private: false,
-  description: "A floating metropolis of sophisticated beauty and political freedom.",
+cloud_city = Channel.create(name: "Old School", private: false,
+  description: "We're going streaking!",
   direct_message: false)
 
-corellia = Channel.create(name: "Corellia", private: false,
-  description: "The first planet from the star Corell.",
+corellia = Channel.create(name: "Gladiator", private: false,
+  description: "Brothers, what we do in life echoes in eternity.",
   direct_message: false)
 
-jaku = Channel.create(name: "Jaku", private: false,
+jaku = Channel.create(name: "The Last Samurai", private: false,
   description: "A frontier dessert world.",
   direct_message: false)
-
-Subscription.create(user_id: yoda.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: obi_wan.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: han_solo.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: chewbacca.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: anakin.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: r2_d2.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: c3po.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: qui_gon.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: darth_maul.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: darth_vader.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: ewok.id, channel_id: jedi_temple.id)
-Subscription.create(user_id: luke.id, channel_id: jedi_temple.id)
