@@ -10,7 +10,6 @@ class ChannelSidebar extends React.Component {
         // ${res.channels[0].id}
         this.props.history.push(`/channels/59`)
       });
-
   }
 
   render() {
